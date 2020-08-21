@@ -1,0 +1,62 @@
+.error {
+  position: relative;
+  font-size: 1.6rem;
+  font-family: "OpenSans Regular";
+  &__bg {
+    width: 100%;
+    object-fit: cover;
+  }
+  &__logo {
+    margin-right: 5rem;
+    margin-bottom: 2rem;
+  }
+  &__group {
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    @include res("md") {
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+  }
+  &__link {
+    display: inline-block;
+    div {
+      margin-right: 2rem;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    a {
+      color: $black;
+      border-bottom: 1px solid $black;
+      transition: 0.3s;
+      &:hover {
+        color: $champagne;
+        border-color: $champagne;
+      }
+    }
+    i {
+      margin-left: 5px;
+    }
+    form {
+      border: 1px solid $des;
+      display: inline-block;
+      @include res("lg") {
+        display: block;
+      }
+      input {
+        width: 15rem;
+        height: 3rem;
+      }
+      button {
+        background-color: transparent;
+        color: $black;
+        transition: 0.3s;
+        &:hover {
+          color: $champagne;
+        }
+      }
+    }
+  }
+}

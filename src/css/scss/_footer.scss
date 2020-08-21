@@ -1,0 +1,206 @@
+.footer {
+  margin-top: 10rem;
+  &__brands {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  &__menu {
+    @include d-grid(1fr 1fr 2fr 2fr);
+    margin-bottom: 1rem;
+    padding: 2.5rem 0;
+    color: $gray;
+    @include res("xl") {
+      @include d-grid(1fr 1fr, 1fr 1fr);
+      grid-row-gap: 1.5rem;
+    }
+    @include res("md") {
+      @include d-grid(1fr 1fr, 1fr 1fr 1fr);
+      &--email,
+      &--contact {
+        grid-column: 1/3;
+      }
+    }
+    @include res("xs") {
+      @include d-grid (1fr);
+      &--email,
+      &--contact {
+        grid-column: 1/2;
+      }
+    }
+    @each $val in ("info", "order", "email", "contact") {
+      &--#{$val} {
+        @include res("xl") {
+          padding-left: 30%;
+        }
+        @include res("lg") {
+          padding-left: 15%;
+        }
+        @include res("md") {
+          padding-left: 0;
+        }
+      }
+    }
+    &--header {
+      font-size: 1.8rem;
+      color: $black;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+    &--items {
+      margin-bottom: 5px;
+    }
+    &--link {
+      font-size: 1.2rem;
+      transition: 0.3s;
+      &:hover {
+        color: $champagne;
+      }
+    }
+    &--form {
+      p {
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+      }
+      form {
+        margin-bottom: 2rem;
+      }
+      input {
+        position: relative;
+        z-index: 1;
+        font-size: 1.2rem;
+        font-style: italic;
+        border: 1px solid $black;
+        padding: 7px 12px;
+        margin: 0;
+        width: 24rem;
+        @include res("sm") {
+          width: unset;
+        }
+      }
+      button {
+        position: absolute;
+        border: solid 1px transparent;
+        background-color: $black;
+        color: $white;
+        margin: 0;
+        padding: 7px 10px 7px 20px;
+        font-size: 1.2rem;
+        transition: 0.3s;
+        &::after {
+          position: absolute;
+          $offset: -1px;
+          top: $offset;
+          bottom: $offset;
+          right: $offset;
+          content: "";
+          transform: translateX(100%);
+          border: solid 15px transparent;
+          border-left-color: $black;
+          transition: 0.3s;
+        }
+        &:hover {
+          background-color: $champagne;
+          color: $black;
+          &::after {
+            border-left-color: $champagne;
+          }
+        }
+      }
+    }
+    &--media {
+      a {
+        padding-right: 15px;
+      }
+      i {
+        transition: 0.3s;
+        color: $gray;
+        &:hover {
+          color: $champagne;
+          transform: scale(1.4);
+        }
+      }
+    }
+    &--contact {
+      max-width: 29rem;
+      font-size: 1.4rem;
+      color: $contact;
+      &-list {
+        margin-bottom: 1rem;
+        &:first-child {
+          i {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+      i {
+        color: $black;
+        font-size: 1.4rem;
+        transition: 0.3s;
+      }
+      span {
+        margin: 0 15px 0 5px;
+        transition: 0.3s;
+      }
+      a {
+        color: $contact;
+        &:hover {
+          i {
+            color: $champagne;
+            transform: scale(1.4);
+          }
+          span {
+            color: $champagne;
+          }
+        }
+      }
+      @include res("xl") {
+        max-width: 100%;
+      }
+    }
+  }
+  &__bot {
+    border-top: solid 1px #e7e7e7;
+    font-family: "Roboto Thin";
+    color: $gray;
+    padding: 1rem 0;
+    &--inner {
+      @include d-grid(2fr 1fr);
+      @include res("sm") {
+        @include d-grid(1fr 1fr);
+      }
+      @include res("xs") {
+        @include d-grid(1fr);
+        grid-row-gap: 1rem;
+      }
+    }
+    &--left {
+      font-size: 1.2rem;
+      font-weight: bold;
+      @include d-flex(flex-start);
+      @include res("xs") {
+        display: unset;
+        text-align: center;
+      }
+    }
+    &--right {
+      a {
+        margin-right: 2rem;
+      }
+      i {
+        color: $gray;
+        font-size: 2.5rem;
+        transition: 0.3s;
+        &:hover {
+          color: $champagne;
+          transform: scale(1.4);
+        }
+      }
+      @include res("xl") {
+        text-align: end;
+      }
+      @include res("xs") {
+        text-align: center;
+      }
+    }
+  }
+}

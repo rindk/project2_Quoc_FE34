@@ -1,0 +1,123 @@
+.header {
+  background-color: $white;
+  color: $gray;
+  font-size: 1.2rem;
+  &__inner {
+    @include d-flex(space-between);
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  &__user {
+    @include res("md") {
+      position: relative;
+      &:hover {
+        .header__user--list {
+          opacity: 1;
+          visibility: visible;
+        }
+        i {
+          color: $champagne;
+          transform: rotate(180deg);
+        }
+      }
+    }
+    i {
+      color: $gray;
+      font-size: 1.8rem;
+      display: none;
+      padding: 0 15px;
+      transition: 0.3s;
+      @include res("md") {
+        display: inline-block;
+      }
+    }
+    &--list {
+      @include d-flex(flex-start);
+      transition: 0.3s;
+      @include res("md") {
+        box-shadow: 3px 3px 5px 3px $des;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 100%;
+        @include pd-bd(1rem, 3rem, $champagne);
+        background-color: $white;
+        width: 20rem;
+        @include d-flex(center, flex-start, column);
+      }
+      span:last-child {
+        display: none;
+      }
+    }
+    &--items {
+      @include res("md") {
+        padding: 5px 0;
+      }
+    }
+    &--link {
+      color: $gray;
+      transition: 0.3s;
+      &:hover {
+        color: $champagne;
+        text-decoration-color: $champagne;
+      }
+      @include res("md") {
+        color: $black;
+      }
+    }
+    span {
+      padding: 0 15px;
+      @include res("md") {
+        display: none;
+      }
+    }
+  }
+  &__search {
+    @include res("lg") {
+      position: relative;
+      &:hover {
+        input {
+          width: 20rem;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    input {
+      @include pd-bd(5px, 15px);
+      border-radius: 5rem;
+      font-style: italic;
+      font-size: 1.2rem;
+      max-width: 40rem;
+      transition: 0.3s;
+      &:focus,
+      &:hover {
+        border-color: $gray;
+      }
+      @include res("lg") {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-100%, -50%);
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+        border-color: $gray;
+      }
+    }
+    button {
+      background-color: transparent;
+      i {
+        cursor: pointer;
+        // padding: 0 15px;
+        transition: 0.3s;
+        &:hover {
+          color: $black;
+          transform: scale(1.4);
+        }
+      }
+    }
+  }
+}

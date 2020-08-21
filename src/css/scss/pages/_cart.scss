@@ -1,0 +1,98 @@
+.cart {
+  &__table-row {
+    @include d-grid(17% 30% 14% 17% 14% 8%);
+    @include res("sm") {
+      @include d-grid(25% 24% 16% 24% 11%);
+    }
+    text-align: center;
+    background-color: #fafafa;
+    border: 1px solid $des;
+    margin-top: -1px;
+    h4,
+    div {
+      border-right: 1px solid $des;
+      &:last-child {
+        border: none;
+      }
+    }
+    div {
+      padding: 1.5rem 0;
+      @include d-flex(center, center, column);
+      &:first-child {
+        h5 {
+          display: none;
+          @include res("sm") {
+            display: unset;
+          }
+        }
+      }
+      &:nth-child(2) {
+        @include res("sm") {
+          display: none;
+        }
+      }
+    }
+    h4 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      padding: 2rem 0;
+      line-height: 1.4;
+      &:first-child {
+        display: none;
+      }
+      @include res("sm") {
+        font-size: 1.2rem;
+        &:first-child {
+          display: unset;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+    h5 {
+      font-size: 1.3rem;
+      line-height: 1.4;
+      @include res("sm") {
+        font-size: 1rem;
+      }
+    }
+    img {
+      width: 6vw;
+      padding-bottom: 1.5rem;
+    }
+    button {
+      cursor: pointer;
+      color: $black;
+      background-color: transparent;
+      transition: 0.3s;
+      &:hover {
+        color: $champagne;
+      }
+    }
+    .price {
+      font-size: 1.6rem;
+      span {
+        font-size: 1.2rem;
+      }
+      @include res("sm") {
+        font-size: 1.4rem;
+        span {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  &__btn {
+    margin-top: 3rem;
+    text-align: right;
+    .btn {
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+    }
+    @include res("sm") {
+      @include d-flex(center, flex-end, column);
+    }
+  }
+}

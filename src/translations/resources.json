@@ -1,0 +1,169 @@
+{
+  "vi": {
+    "translation": {
+      "header": {
+        "profile": "Tài khoản của tôi",
+        "order": "Trạng thái đơn hàng",
+        "cart": "Giỏ hàng",
+        "login": "Đăng nhập",
+        "signup": "Đăng ký",
+        "signout": "Thoát",
+        "search": "Tìm kiếm..."
+      },
+      "menu": {
+        "home": "TRANG CHỦ",
+        "intro": "GIỚI THIỆU",
+        "products": "SẢN PHẨM",
+        "contact": "LIÊN HỆ",
+        "address": "ĐỊA CHỈ"
+      },
+      "footer": {
+        "info": {
+          "header": "THÔNG TIN",
+          "about": "VỀ CHÚNG TÔI",
+          "delivery": "GIAO HÀNG",
+          "feeling": "CẢM NGHĨ",
+          "store": "LƯU TRỮ",
+          "policy": "CHÍNH SÁCH RIÊNG TƯ"
+        },
+        "purchase": {
+          "header": "MUA HÀNG",
+          "ship": "VẬN CHUYỂN VÀ TRẢ HÀNG",
+          "buy": "MUA HÀNG AN TOÀN",
+          "internationnal-ship": "VẬN QUỐC TẾ",
+          "link": "LIÊN KẾT",
+          "discount": "DỊCH VỤ GIẢM GIÁ"
+        },
+        "mail": {
+          "header": "GỬI EMAIL",
+          "desc": "Gửi email cho chúng tôi để được hỗ trợ",
+          "send": "Gửi",
+          "placeholher": "Nhập email của bạn"
+        },
+        "contact": {
+          "header": "LIÊN HỆ",
+          "address": "Tầng 4, Tòa nhà Hanoi Group. Số 442 Đội Cấn, P. Cống Vị, Q. Ba Đình, Hà Nội"
+        }
+      },
+      "popup": {
+        "header": "Gửi Email",
+        "desc": "Đăng ký Email ngay hôm nay để nhận đươc thông tin về các sự kiện, các chương trình giảm giá của chúng tôi sớm nhất!",
+        "checkbox": "Không hiển thị lại thông báo này"
+      },
+      "modal": {
+        "header": "BẠN CHƯA ĐĂNG NHẬP",
+        "desc": "Vui lòng đăng nhập. Nếu bạn chưa có tài khoản bạn có thể đăng ký link bên dưới."
+      },
+      "title": {
+        "intro": "GIỚI THIỆU",
+        "wine": "RƯỢU NHO NĂM 1987",
+        "new": "SẢN PHẨM MỚI",
+        "hot": "SẢN PHẨM BÁN CHẠY",
+        "news&blog": "TIN TỨC & BLOG",
+        "passenger": "KHÁCH HÀNG",
+        "address": "ĐỊA CHỈ",
+        "blog": "BLOG",
+        "cart": "GIỎ HÀNG",
+        "contact": "LIÊN HỆ",
+        "login": "ĐĂNG NHẬP",
+        "signup": "ĐĂNG KÝ",
+        "order": "ĐƠN HÀNG",
+        "viewed": "SẢN PHẨM BẠN VỪA XEM",
+        "products": "DANH MỤC SẢN PHẨM"
+      },
+      "main": {
+        "home": {
+          "intro": "Mriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faciteorum claritatem. Investigtiones demonstraverunt lectores legere me lius quod ii legunt saepius.Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putam",
+          "hotdeal": {
+            "content": "Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ ôxy hoá của protein béo.",
+            "date": "NGÀY",
+            "hour": "GIỜ",
+            "min": "PHÚT",
+            "sec": "GIÂY"
+          },
+          "wine": "RƯỢU",
+          "blog": {
+            "header": "VANG THĂNG LONG CLASSIC",
+            "content": "Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long tạo cảm giác hương phấn, êm dịu, vui tươi, sản phẩm được đóng chai dung tích 750ml..."
+          },
+          "passenger": "Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long ..."
+        },
+        "address": {
+          "header": "ĐỊA CHỈ CỦA BẠN",
+          "modifyAdd": "Chỉnh sửa địa chỉ",
+          "newAdd": "Thêm địa chỉ",
+          "fname": "Tên",
+          "lname": "Họ & tên đệm",
+          "address": "Địa chỉ",
+          "city": "Thành phố",
+          "phone": "SĐT",
+          "checkbox": "Đặt làm địa chỉ mặt định?"
+        },
+        "cart": {
+          "img": "ẢNH",
+          "name": "TÊN SẢN PHẨM",
+          "products": "SẢN PHẨM",
+          "price": "GIÁ",
+          "qty": "SỐ LƯỢNG",
+          "total": "TỔNG SỐ",
+          "delete": "XÓA"
+        },
+        "intro": {
+          "header": "CHÀO MỪNG ĐẾN VỚI WINE HOURSE",
+          "content": "Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long tạo cảm giác hương phấn, êm dịu, vui tươi, sản phẩm được đóng chai dung tích 750ml.Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn."
+        },
+        "login": {
+          "header": "KHÁCH HÀNG ĐĂNG NHẬP",
+          "desc": "Nếu bạn có một tài khoản, xin vui lòng đăng nhập.",
+          "forgotPass": "Quên mật khẩu?"
+        },
+        "signup": {
+          "info": "Thông tin cá nhân",
+          "fname": "Tên trước *",
+          "lname": "Tên sau *",
+          "checkbox": "Đăng ký nhận bản tin",
+          "infoLogin": "Thông tin đăng nhập",
+          "pass": "Mật khẩu *",
+          "passConfirm": "Xác nhận mật khẩu *"
+        }
+      },
+      "button": {
+        "intro": "XEM THÊM",
+        "addToCart": "ADD TO CART",
+        "sendEmail": "GỬI EMAIL",
+        "updateAdd": "Cập nhật địa chỉ",
+        "exit": "Thoát",
+        "delete": "Xóa",
+        "buyMore": "TIẾP TỤC MUA HÀNG",
+        "update": "CẬP NHẬT",
+        "send": "GỬI",
+        "login": "ĐĂNG NHẬP",
+        "signup": "ĐĂNG KÝ",
+        "checkout": "THANH TOÁN",
+        "back": "QUAY LẠI"
+      },
+      "products": {
+        "fav": "Yêu thích",
+        "comp": "So sánh",
+        "color": "MÀU SẮC",
+        "dimen": {
+          "header": "KÍCH CỠ",
+          "lg": "Loại to",
+          "md": "Loại vừa",
+          "sm": "Loại nhỏ"
+        },
+        "qty": "SỐ LƯỢNG",
+        "desc": "MÔ TẢ",
+        "content": "Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ ôxy hoá của protein béo.",
+        "tag": {
+          "hot": "Hot",
+          "sale": "Sale",
+          "new": "Mới"
+        }
+      },
+      "user": {},
+      "admin": {},
+      "common": {}
+    }
+  }
+}

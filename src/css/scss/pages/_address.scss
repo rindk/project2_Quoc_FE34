@@ -1,0 +1,101 @@
+.address {
+  &__head {
+    @include d-grid(1fr 1fr);
+    margin-bottom: 3.5rem;
+    color: $head;
+    font-size: 1.8rem;
+    a {
+      color: #24c5d9;
+      border-bottom: 1px solid currentColor;
+    }
+  }
+  &__wrapper {
+    @include d-grid(1fr 1fr);
+    grid-column-gap: 3rem;
+    @include res("md") {
+      @include d-grid(1fr);
+    }
+  }
+  &__added {
+    &--inner {
+      border-top: 1px solid $des;
+      padding-top: 3rem;
+      &:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+      margin-bottom: 3.5rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &--modified {
+      text-align: right;
+      a {
+        color: #24c5d9;
+        border-bottom: 1px solid currentColor;
+      }
+    }
+  }
+  &__added--inner,
+  &__new {
+    &.active {
+      input {
+        border: 1px solid $des;
+        pointer-events: auto;
+      }
+    }
+  }
+  &__form {
+    label {
+      @include d-grid(20% 80%);
+      @include res("xl") {
+        @include d-grid(1fr);
+      }
+      margin-bottom: 15px;
+      span {
+        margin-bottom: 8px;
+        text-decoration: underline;
+      }
+      span,
+      input {
+        color: $gray;
+        font-size: 1.6rem;
+        font-family: "Times New Roman", Times, serif;
+      }
+      input {
+        pointer-events: none;
+        height: 3rem;
+        padding: 8px 15px;
+      }
+    }
+  }
+  &__btn {
+    position: relative;
+    left: 20%;
+    @include res("xl") {
+      left: 0;
+    }
+    label {
+      display: inline-block;
+      margin-bottom: 3rem;
+      span {
+        margin-left: 10px;
+        color: $gray;
+      }
+    }
+    .btn {
+      font-size: 1.6rem;
+      color: $white;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin-right: 1.5rem;
+    }
+    &--submit {
+      background-color: #24c5d9;
+    }
+    &--del {
+      background-color: $black;
+    }
+  }
+}

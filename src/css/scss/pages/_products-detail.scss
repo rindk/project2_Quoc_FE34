@@ -1,0 +1,317 @@
+.pdDetail- {
+  &detail {
+    padding-bottom: 5rem;
+    &__inner {
+      @include d-grid(7fr 5fr);
+      @include res("md") {
+        @include d-grid(1fr);
+      }
+    }
+    &__img {
+      &-wrapper {
+        @include d-grid(1fr 6fr);
+        @include res("md") {
+          margin-bottom: 2rem;
+        }
+      }
+      &-list {
+        @include d-grid(1fr, 1fr 10fr 1fr);
+        a {
+          @include d-flex(center, center, column);
+          color: $gray;
+          transition: 0.3s;
+          &:hover {
+            color: $champagne;
+          }
+        }
+        div {
+          @include d-flex(center, center, column);
+          a {
+            padding: 5px 0;
+            border-bottom: 1px solid $des;
+
+            &:last-child {
+              border: none;
+            }
+            img {
+              width: 100%;
+              transition: 0.3s;
+              border: 2px solid transparent;
+              &:hover {
+                border: 2px solid $champagne;
+              }
+            }
+          }
+        }
+      }
+      &-big {
+        @include d-flex();
+      }
+    }
+    &__price-wrapper {
+      .section__arrow--title {
+        margin-bottom: 2rem;
+      }
+      .price {
+        margin-bottom: 1.5rem;
+      }
+    }
+    &__rv {
+      border: solid 1px $des;
+      border-right: none;
+      border-left: none;
+      padding: 1.5rem 0;
+      &--star {
+        display: inline-block;
+        direction: rtl;
+        span {
+          transition: 0.3s;
+          font-size: 2rem;
+          padding-right: 3px;
+          color: $gray;
+        }
+        & > span:hover:before,
+        & > span:hover ~ span:before {
+          content: "★";
+          position: absolute;
+          color: $champagne;
+        }
+      }
+      a {
+        color: $gray;
+        transition: 0.3s;
+        &:hover {
+          color: $champagne;
+        }
+      }
+      > span {
+        padding: 0 4px;
+      }
+    }
+    &__form {
+      padding-top: 2.5rem;
+      label {
+        font-size: 1.6rem;
+        color: $gray;
+        display: block;
+        margin-bottom: 1.5rem;
+      }
+    }
+    &__color {
+      padding-bottom: 2rem;
+      div {
+        position: relative;
+        height: 30px;
+      }
+      @each $cl, $left in ("champagne": 0rem, "black": 4rem, "bordeaux": 8rem) {
+        input[value="#{$cl}"] {
+          margin: 0;
+          opacity: 0;
+          position: absolute;
+          z-index: 2;
+          left: $left;
+          top: 0;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          &:checked {
+            ~ span[class="#{$cl}"] {
+              transform: scale(1.3);
+            }
+          }
+        }
+        span[class="#{$cl}"] {
+          position: absolute;
+          z-index: 1;
+          display: inline-block;
+          top: 0;
+          left: $left;
+          width: 30px;
+          height: 30px;
+          transition: 0.3s;
+          @if $cl == "champagne" {
+            border: 1px solid $champagne;
+            background-color: $champagne;
+          }
+          @if $cl == "black" {
+            border: 1px solid $black;
+            background-color: $black;
+          }
+          @if $cl == "bordeaux" {
+            border: 1px solid $bordeaux;
+            background-color: $bordeaux;
+          }
+        }
+      }
+    }
+    &__dimension {
+      padding-bottom: 2rem;
+      select {
+        outline: none;
+        border: 1px $des solid;
+        color: $gray;
+        font-family: "Times New Roman", Times, serif;
+        width: 12rem;
+        padding: 5px 10px;
+        option {
+          color: $gray;
+          font-size: 1.4rem;
+        }
+      }
+    }
+    &__quantity {
+      padding-bottom: 2rem;
+      div {
+        display: inline-block;
+        margin-right: 2rem;
+        @include res("lg") {
+          margin-bottom: 1.5rem;
+        }
+      }
+      .number {
+        display: inline-block;
+        color: $gray;
+        font-family: "Times New Roman", Times, serif;
+        padding: 0 10px;
+        height: 30px;
+        width: 30px;
+        background-color: $des;
+        &:nth-child(2) {
+          text-align: center;
+          font-weight: bold;
+          width: 6rem;
+          border: 2px solid $des;
+          background-color: transparent;
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+      }
+    }
+    &__fav {
+      margin-bottom: 2rem;
+      max-width: 60%;
+      @include res("xl") {
+        max-width: 100%;
+      }
+      @include d-grid(1fr 1fr 1fr);
+      cursor: pointer;
+      padding: 8px 0;
+      transition: 0.3s;
+      i {
+        color: $gray;
+        transition: 0.3s;
+      }
+      span {
+        margin-left: 5px;
+        font-size: 1.4;
+        color: $gray;
+        transition: 0.3s;
+      }
+      a {
+        &:hover {
+          i {
+            color: $champagne;
+            transform: scale(1.2);
+          }
+          span {
+            color: $champagne;
+          }
+        }
+      }
+    }
+    &__des {
+      color: $gray;
+      max-width: 80%;
+      @include res("lg") {
+        max-width: 100%;
+      }
+      p {
+        margin-top: 1.5rem;
+        font-size: 1.3rem;
+        line-height: 1.4;
+      }
+    }
+  }
+  &tab {
+    &__inner {
+      @include d-grid(2fr 1fr);
+      margin-bottom: 5rem;
+      @include res("lg") {
+        @include d-grid(1fr);
+      }
+      @include res("sm") {
+        margin-bottom: 11rem;
+      }
+    }
+    &__text {
+      position: relative;
+      @each $id in ("feature", "info", "evaluate") {
+        input[id="#{$id}"] {
+          position: absolute;
+          left: -100%;
+          &:checked {
+            ~ .pdDetail-tab__label label[for="#{$id}"] {
+              color: $white;
+              background-color: $champagne;
+            }
+            + .pdDetail-tab__content {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    &__content {
+      display: none;
+      width: 87.5%;
+      text-indent: 2rem;
+      transition: 0.8s ease-out;
+      transform: translate(0, 5rem);
+      line-height: 1.3;
+      @include res("xl") {
+        width: 95%;
+      }
+      @include res("lg") {
+        width: 100%;
+      }
+      @include res("sm") {
+        transform: translate(0, 11rem);
+      }
+    }
+    &__label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      label {
+        display: inline-block;
+        margin-right: 1.5rem;
+        font-size: 2rem;
+        color: $gray;
+        padding: 8px 12px;
+        @include res("xl") {
+          margin-right: 0;
+          font-size: 1.8rem;
+        }
+        @include res("md") {
+          font-size: 1.6rem;
+        }
+        @include res("sm") {
+          display: block;
+        }
+      }
+    }
+    &__img {
+      @include res("lg") {
+        display: none;
+      }
+      img {
+        width: 100%;
+        transform: translateY(3rem);
+      }
+    }
+  }
+}

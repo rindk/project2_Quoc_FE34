@@ -1,0 +1,122 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Times New Roman", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  position: relative;
+}
+a {
+  text-decoration-color: transparent;
+  cursor: pointer;
+}
+button,
+i,
+input {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  border-style: none;
+}
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  @include res("xl") {
+    max-width: 960px;
+  }
+  @include res("lg") {
+    max-width: 720px;
+  }
+  @include res("md") {
+    max-width: 540px;
+  }
+  @include res("sm") {
+    width: 100%;
+  }
+}
+.section {
+  $poss: (
+    "center": "center",
+    "arrow": "left",
+  );
+  @each $pos, $val in $poss {
+    &__#{$pos}--title {
+      @if $pos == "center" {
+        padding-top: 10rem;
+        @include res("xs") {
+          padding-top: 4rem;
+        }
+      }
+      text-align: #{$val};
+      margin-bottom: 3.5rem;
+      @include res("lg") {
+        margin-bottom: 3rem;
+      }
+    }
+    &__#{$pos}--header {
+      font-size: 2.1rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+  }
+}
+.btn {
+  display: inline-block;
+  background-color: $black;
+  padding: 8px 18px;
+  font-size: 1.2rem;
+  font-family: "Times New Roman", Times, serif;
+  color: $white;
+  letter-spacing: 2px;
+  transition: 0.3s;
+  &:hover {
+    background-color: $champagne;
+  }
+  &-big {
+    padding: 15px 40px;
+    font-size: 1.4rem;
+  }
+}
+.price {
+  font-family: "UTM Caviar";
+  color: $champagne;
+  font-size: 3.4rem;
+
+  span {
+    vertical-align: super;
+    font-size: 2rem;
+  }
+}
+.breadcrumb {
+  padding: 3rem 0 3.5rem 0;
+  &__inner {
+    @include d-flex(flex-start);
+    font-size: 1.4rem;
+    color: $gray;
+    a {
+      color: $gray;
+      transition: 0.3s;
+      &:hover {
+        color: $champagne;
+      }
+    }
+    span {
+      margin: 0 5px;
+    }
+    p {
+      color: $champagne;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.blog {
+  &__inner {
+    @include d-grid(1fr 1fr 1fr);
+    grid-column-gap: 3rem;
+    @include res("lg") {
+      @include d-grid(1fr 1fr);
+    }
+    @include res("sm") {
+      @include d-grid(1fr);
+    }
+  }
+}

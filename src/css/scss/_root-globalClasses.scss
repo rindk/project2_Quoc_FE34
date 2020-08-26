@@ -29,6 +29,13 @@ img {
   vertical-align: middle;
   border-style: none;
 }
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+aside {
+  display: inline-block;
+}
 .container {
   max-width: 1200px;
   padding: 0 15px;
@@ -119,4 +126,11 @@ img {
       color: $champagne;
     }
   }
+}
+.slider {
+  width: 150%;
+  transition: 0.5s;
+}
+.slide {
+  width: calc((100%) / 6);
 }

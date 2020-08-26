@@ -17,7 +17,7 @@ function Contact() {
       <section className="contact">
         <div className="container">
           <div className="section__arrow--title">
-            <h1 className="section__arrow--header">{t("title.contac")}</h1>
+            <h1 className="section__arrow--header">{t("title.contact")}</h1>
             <img
               className="section__arrow--icon"
               src="assets/images/decor/2.png"

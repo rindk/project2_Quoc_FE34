@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductItem } from "../../redux/reducer/productItem";
 
 function ProductDetail() {
   const url = "";
+  const [qty, setQty] = useState(1);
   const { t } = useTranslation();
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const productItem = useSelector((state) => state.productItem.value);
+
+  useEffect(() => {
+    dispatch(fetchProductItem(id));
+  }, [dispatch, id]);
+
+  const handleQty = (e) => {
+    const data = e.target.value;
+    if (data === "-") return setQty(qty - 1);
+    if (data === "+") return setQty(qty + 1);
+  };
+
+  const handleRating = (e) => {
+    console.log(typeof e.target.dataset.star);
+  };
 
   return (
     <main className="pdDetail-main">
@@ -14,68 +34,44 @@ function ProductDetail() {
           <span>/</span>
           <Link to="/products">{t("menu.products")}</Link>
           <span>/</span>
-          <p>Wine</p>
+          <p>WINE</p>
         </div>
       </div>
       <section className="pdDetail-detail">
         <div className="container pdDetail-detail__inner">
           <div className="pdDetail-detail__img-wrapper">
-            <div className="pdDetail-detail__img-list">
-              <a href={url}>
-                <i className="fas fa-arrow-up"></i>
-              </a>
-              <div>
-                <a href={url}>
-                  <img src="assets/images/product-detail/1.png" alt="" />
-                </a>
-                <a href={url}>
-                  <img src="assets/images/product-detail/1.png" alt="" />
-                </a>
-                <a href={url}>
-                  <img src="assets/images/product-detail/2.png" alt="" />
-                </a>
-                <a href={url}>
-                  <img src="assets/images/product-detail/3.png" alt="" />
-                </a>
-                <a href={url}>
-                  <img src="assets/images/product-detail/1.png" alt="" />
-                </a>
-              </div>
-              <a href={url}>
-                <i className="fas fa-arrow-down"></i>
-              </a>
-            </div>
             <div className="pdDetail-detail__img-big">
-              <img src="assets/images/product-detail/big.png" alt="" />
+              <img src={`${productItem.img}`} alt="" />
             </div>
           </div>
           <div className="pdDetail-detail__price-wrapper">
             <div className="section__arrow--title">
-              <h1 className="section__arrow--header">RƯỢU NHO NĂM 1987</h1>
+              <h1 className="section__arrow--header">{productItem.name}</h1>
               <img
                 className="section__arrow--icon"
-                src="assets/images/decor/2.png"
+                src="../assets/images/decor/2.png"
                 alt="icon"
               />
             </div>
             <div className="price">
-              330.000<span>đ</span>
+              {productItem.price}
+              <span>$</span>
             </div>
             <div className="pdDetail-detail__rv">
               <div className="pdDetail-detail__rv--star">
-                <span>☆</span>
-                <span>☆</span>
-                <span>☆</span>
-                <span>☆</span>
-                <span>☆</span>
+                {Array(5)
+                  .fill(null)
+                  .map((el, i) => (
+                    <span data-star={5 - i} onClick={handleRating}>
+                      ☆
+                    </span>
+                  ))}
               </div>
-              <a className="pdDetail-detail__rv--link" href={url}>
-                1 Review(S)
-              </a>
+              <button className="pdDetail-detail__rv--link">1 Review(S)</button>
               <span>|</span>
-              <a className="pdDetail-detail__rv--cmt" href={url}>
+              <button className="pdDetail-detail__rv--cmt">
                 Add Your Review
-              </a>
+              </button>
             </div>
             <form className="pdDetail-detail__form" action="#">
               <div className="pdDetail-detail__color">
@@ -116,6 +112,7 @@ function ProductDetail() {
                     type="button"
                     value="-"
                     data-field="quantity"
+                    onClick={handleQty}
                   />
                   <input
                     className="number"
@@ -124,13 +121,14 @@ function ProductDetail() {
                     name="quantity"
                     step="1"
                     min="1"
-                    value="1"
+                    value={qty}
                   />
                   <input
                     className="number"
                     type="button"
                     value="+"
                     data-field="quantity"
+                    onClick={handleQty}
                   />
                 </div>
                 <input
@@ -141,18 +139,14 @@ function ProductDetail() {
               </div>
             </form>
             <div className="pdDetail-detail__fav">
-              <a href={url}>
+              <button href={url}>
                 <i className="fas fa-heart"></i>
                 <span>{t("products.fav")}</span>
-              </a>
-              <a href={url}>
+              </button>
+              <button href={url}>
                 <i className="fas fa-signal"></i>
                 <span>{t("products.comp")}</span>
-              </a>
-              <a href={url}>
-                <i className="fas fa-envelope"></i>
-                <span>Email</span>
-              </a>
+              </button>
             </div>
             <div className="pdDetail-detail__des">
               {t("products.desc")}
@@ -165,7 +159,7 @@ function ProductDetail() {
         <h1 className="section__center--header">{t("title.viewed")}</h1>
         <img
           className="section__center--icon"
-          src="assets/images/decor/1.png"
+          src="../assets/images/decor/1.png"
           alt="icon"
         />
       </div>

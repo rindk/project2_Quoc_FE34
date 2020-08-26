@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useSelector, useDispatch } from "react-redux";
+import ProductsList from "./productsList";
+import { fetchProductsHot } from "../../redux/reducer/productsHot";
+import { fetchProductsTopSale } from "../../redux/reducer/productsTopSale";
+import { clickSlider } from "../commonFunction";
 
 function Home() {
   const url = "";
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const productsHot = useSelector((state) => state.productsHot.value);
+  const productsTopSale = useSelector((state) => state.productsTopSale.value);
+
+  // Fetch hot products and top sale products
+  useEffect(() => {
+    dispatch(fetchProductsHot());
+    dispatch(fetchProductsTopSale());
+  }, [dispatch]);
 
   return (
     <main className="home-main">
@@ -88,173 +102,29 @@ function Home() {
       </div>
       <section className="home-new">
         <div className="container home-new__inner">
-          <a className="home-new__left" href={url}>
+          <button
+            className="home-new__left"
+            onClick={() => clickSlider("hot", "left")}
+          >
             <i className="fas fa-arrow-left"></i>
-          </a>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--sale">{t("products.tag.sale")}</p>
-              <img
-                className="home-new__img"
-                src="assets/images/new-product/1.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  {" "}
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--new">{t("products.tag.new")}</p>
-              <img
-                className="home-new__img"
-                src="assets/images/new-product/2.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  {" "}
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--hot">{t("products.tag.hot")}</p>
-              <img
-                className="home-new__img"
-                src="assets/images/new-product/3.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <img
-                className="home-new__img"
-                src="assets/images/new-product/4.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <a className="home-new__right" href={url}>
+          </button>
+          <button
+            className="home-new__right"
+            onClick={() => clickSlider("hot", "right")}
+          >
             <i className="fas fa-arrow-right"></i>
-          </a>
+          </button>
+          <div id="slider_hot" className="slider">
+            {productsHot.map((elem, index) => (
+              <ProductsList
+                key={index}
+                product={elem}
+                hasTag={true}
+                slide={"slide"}
+                active={index === 0 ? "active" : ""}
+              />
+            ))}
+          </div>
         </div>
       </section>
       <section className="home-gallery">
@@ -375,180 +245,38 @@ function Home() {
       </div>
       <section className="home-new">
         <div className="container home-new__inner">
-          <a className="home-new__left" href={url}>
+          <button
+            className="home-new__left"
+            onClick={() => clickSlider("top", "left")}
+          >
             <i className="fas fa-arrow-left"></i>
-          </a>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--none"></p>
-              <img
-                className="home-new__img"
-                src="assets/images/top-sales/1.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--none"></p>
-              <img
-                className="home-new__img"
-                src="assets/images/top-sales/2.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--none"></p>
-              <img
-                className="home-new__img"
-                src="assets/images/top-sales/3.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--none"></p>
-              <img
-                className="home-new__img"
-                src="assets/images/top-sales/4.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  {" "}
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <a className="home-new__right" href={url}>
+          </button>
+          <button
+            className="home-new__right"
+            onClick={() => clickSlider("top", "right")}
+          >
             <i className="fas fa-arrow-right"></i>
-          </a>
+          </button>
+          <div id="slider_top" className="slider">
+            {productsTopSale.map((elem, index) => (
+              <ProductsList
+                key={index}
+                product={elem}
+                hasTag={false}
+                slide={"slide"}
+                active={index === 0 ? "active" : ""}
+              />
+            ))}
+          </div>
         </div>
       </section>
       <section className="home-blog">
         <div className="container home-blog__inner">
           <div className="home-blog__blog">
             <div className="section__center--title">
-              <h1 className="section__center--header">{t("title.news&blog")}</h1>
+              <h1 className="section__center--header">
+                {t("title.news&blog")}
+              </h1>
               <img
                 className="section__center--icon"
                 src="assets/images/decor/1.png"
@@ -646,7 +374,7 @@ function Home() {
                 </div>
                 <div className="home-blog__quote--2">
                   <div className="home-blog__quote--content">
-                    {t("main.home.blog.passenger")}
+                  {t("main.home.passenger")}
                     <a href={url}>Read more</a>
                   </div>
                   <div className="home-blog__ava">
@@ -657,7 +385,7 @@ function Home() {
                 </div>
                 <div className="home-blog__quote--3">
                   <div className="home-blog__quote--content">
-                    {t("main.home.blog.passenger")}
+                  {t("main.home.passenger")}
                     <a href={url}>Read more</a>
                   </div>
                   <div className="home-blog__ava">

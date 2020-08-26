@@ -8,7 +8,7 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer__brands">
-          <img src="assets/images/brands/brands.png" alt="Brands" />
+          <img src="http://localhost:4000/assets/images/brands/brands.png" alt="Brands" />
         </div>
         <div className="footer__menu">
           <div className="footer__menu--info">

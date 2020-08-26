@@ -1,9 +1,9 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+// import { useTranslation } from "react-i18next";
+// import { Link } from "react-router-dom";
 
 function Error404() {
-  const { t } = useTranslation;
+  // const { t } = useTranslation();
   return (
     <section className="error">
       <img
@@ -11,7 +11,7 @@ function Error404() {
         src="assets/images/404/error.png"
         alt="404 error"
       />
-      <div classNameName="error__group">
+      {/* <div className="error__group">
         <img
           className="error__logo"
           src="assets/images/logo/logo-black.png"
@@ -19,9 +19,7 @@ function Error404() {
         />
         <div className="error__link">
           <div>
-            <Link to="/">
-              {t("menu.home")}
-            </Link>
+            <Link to="/">{t("menu.home")}</Link>
             <i className="fas fa-caret-right"></i>
           </div>
           <div>
@@ -35,7 +33,7 @@ function Error404() {
             <input type="text" name="search" />
           </form>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

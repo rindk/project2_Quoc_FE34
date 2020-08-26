@@ -42,10 +42,10 @@
         z-index: 100;
         top: 0;
         left: 100%;
-        @include pd-bd(1rem,3rem,$champagne);
+        @include pd-bd(1rem, 3rem, $champagne);
         background-color: $white;
         width: 20rem;
-        @include d-flex(center, flex-start,column);
+        @include d-flex(center, flex-start, column);
       }
       span:last-child {
         display: none;

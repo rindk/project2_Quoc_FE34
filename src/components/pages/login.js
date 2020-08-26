@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { closeModal, checkLogin } from "../commonFunction";
+import { checkLoginStt } from "../../redux/reducer/loginStatus";
+import { updateToken } from "../../redux/reducer/token";
 
 function Login() {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  // Close Modal after render
+  useEffect(() => closeModal(), []);
+
+  // handle Input
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const handleInput = (e) => {
+    const input = e.target;
+    setUser({ ...user, [input.name]: input.value });
+  };
+
+  // Log in Submit
+  const loginSubmit = (e) => {
+    e.preventDefault();
+    const isValid = checkLogin(user);
+    isValid.then((data) =>
+      data.length === 1
+        ? loginSuccessed(data)
+        : alert("Tài khoản không đúng. Vui lòng đăng nhập lại")
+    );
+  };
+
+  const loginSuccessed = (token) => {
+    alert("Bạn đã đăng nhập thành công!");
+    dispatch(updateToken(token));
+    dispatch(checkLoginStt());
+    return (window.location.href = "/");
+  };
 
   return (
     <main className="login-main">
@@ -33,14 +69,24 @@ function Login() {
           <div className="login__bot">
             <h3>{t("main.login.header")}</h3>
             <p>{t("main.login.desc")}</p>
-            <form className="login__form" action="#" method="post">
+            <form className="login__form" onSubmit={loginSubmit} method="post">
               <div className="login__form-row">
                 <label htmlFor="login-email">Email *</label>
-                <input id="login-email" type="email" name="email" />
+                <input
+                  id="login-email"
+                  type="email"
+                  name="email"
+                  onChange={handleInput}
+                />
               </div>
               <div className="login__form-row">
                 <label htmlFor="login-pass">Password *</label>
-                <input id="login-pass" type="password" name="password" />
+                <input
+                  id="login-pass"
+                  type="password"
+                  name="password"
+                  onChange={handleInput}
+                />
               </div>
               <div className="login__form-row">
                 <div>

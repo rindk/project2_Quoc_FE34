@@ -7,6 +7,7 @@
         "cart": "Giỏ hàng",
         "login": "Đăng nhập",
         "signup": "Đăng ký",
+        "signout": "Thoát",
         "search": "Tìm kiếm..."
       },
       "menu": {
@@ -49,6 +50,10 @@
         "desc": "Đăng ký Email ngay hôm nay để nhận đươc thông tin về các sự kiện, các chương trình giảm giá của chúng tôi sớm nhất!",
         "checkbox": "Không hiển thị lại thông báo này"
       },
+      "modal": {
+        "header": "BẠN CHƯA ĐĂNG NHẬP",
+        "desc": "Vui lòng đăng nhập. Nếu bạn chưa có tài khoản bạn có thể đăng ký link bên dưới."
+      },
       "title": {
         "intro": "GIỚI THIỆU",
         "wine": "RƯỢU NHO NĂM 1987",
@@ -64,7 +69,8 @@
         "signup": "ĐĂNG KÝ",
         "order": "ĐƠN HÀNG",
         "viewed": "SẢN PHẨM BẠN VỪA XEM",
-        "products": "DANH MỤC SẢN PHẨM"
+        "products": "DANH MỤC SẢN PHẨM",
+        "price": "GIÁ SẢN PHẨM"
       },
       "main": {
         "home": {
@@ -137,7 +143,7 @@
         "checkout": "THANH TOÁN",
         "back": "QUAY LẠI"
       },
-      "produucts": {
+      "products": {
         "fav": "Yêu thích",
         "comp": "So sánh",
         "color": "MÀU SẮC",
@@ -154,6 +160,10 @@
           "hot": "Hot",
           "sale": "Sale",
           "new": "Mới"
+        },
+        "type": {
+          "red": "RƯỢU VANG ĐỎ",
+          "white": "RƯỢU VANG TRẮNG"
         }
       },
       "user": {},

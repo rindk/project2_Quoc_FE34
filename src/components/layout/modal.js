@@ -1,9 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { closeModal } from "../commonFunction";
 
 function Modal() {
-  const closeModal = () => {
-    document.querySelector(".modal").classList.remove("active");
-  };
+  const { t } = useTranslation();
+
   return (
     <section className="modal">
       <div className="modal__inner">
@@ -11,30 +13,20 @@ function Modal() {
           <i className="fas fa-times"></i>
         </div>
         <div className="modal__content">
-          <img src="assets/images/popup/pic.png" alt="modal" />
+          <img
+            src="http://localhost:4000/assets/images/popup/pic.png"
+            alt="modal"
+          />
           <div className="modal__content--wrapper">
             <div className="modal__content--text">
-              <h1>Gửi Email</h1>
-              <p>
-                Đăng ký Email ngay hôm nay để nhận đươc thông tin về các sự
-                kiện, các chương trình giảm giá của chúng tôi sớm nhất!
-              </p>
-              <form action="#" method="post">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email của bạn..."
-                />
-                <button className="btn" type="submit">
-                  GỬI EMAIL
-                </button>
-                <div>
-                  <input id="modal-check" type="checkbox" name="get-noti" />
-                  <label htmlFor="modal-check">
-                    Không hiển thị lại thông báo này
-                  </label>
-                </div>
-              </form>
+              <h1>{t("modal.header")}</h1>
+              <p>{t("modal.desc")}</p>
+              <Link className="btn" to="/login">
+                {t("button.login")}
+              </Link>
+              <Link className="btn" to="/signup">
+                {t("button.signup")}
+              </Link>
             </div>
           </div>
         </div>

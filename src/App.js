@@ -7,23 +7,20 @@ import Main from "./components/layout/main";
 import Footer from "./components/layout/footer";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchProductsList } from "./redux/reducer/productsList";
-
-import { useSelector } from "react-redux";
+import { checkLoginStt } from "./redux/reducer/loginStatus";
 
 function App() {
   const dispatch = useDispatch();
-  const productsList = useSelector((state) => state.productsList.value);
 
-  // Loading
+  // Loading hot and topsale products at home page
   useEffect(() => {
-    dispatch(fetchProductsList());
+    dispatch(checkLoginStt());
   }, [dispatch]);
+
   return (
     <Router>
-      {console.log("Test to get products: ", productsList)}
-      <Popup />
       <Modal />
+      <Popup />
       <Header />
       <Menu />
       <Main />

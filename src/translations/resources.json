@@ -7,6 +7,7 @@
         "cart": "Giỏ hàng",
         "login": "Đăng nhập",
         "signup": "Đăng ký",
+        "signout": "Thoát",
         "search": "Tìm kiếm..."
       },
       "menu": {
@@ -48,6 +49,10 @@
         "header": "Gửi Email",
         "desc": "Đăng ký Email ngay hôm nay để nhận đươc thông tin về các sự kiện, các chương trình giảm giá của chúng tôi sớm nhất!",
         "checkbox": "Không hiển thị lại thông báo này"
+      },
+      "modal": {
+        "header": "BẠN CHƯA ĐĂNG NHẬP",
+        "desc": "Vui lòng đăng nhập. Nếu bạn chưa có tài khoản bạn có thể đăng ký link bên dưới."
       },
       "title": {
         "intro": "GIỚI THIỆU",
@@ -137,7 +142,7 @@
         "checkout": "THANH TOÁN",
         "back": "QUAY LẠI"
       },
-      "produucts": {
+      "products": {
         "fav": "Yêu thích",
         "comp": "So sánh",
         "color": "MÀU SẮC",

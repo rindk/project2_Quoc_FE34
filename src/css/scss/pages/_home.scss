@@ -77,6 +77,14 @@
         @include res("md") {
           padding: 5px 0;
         }
+        cursor: pointer;
+        &.user {
+          padding: 8px 12px;
+          border-radius: 2rem;
+          background-color: $champagne;
+          font-weight: bold;
+          color: white;
+        }
       }
       &--link {
         color: $home-text;
@@ -84,6 +92,7 @@
         &:hover {
           color: $champagne;
           text-decoration-color: $champagne;
+          text-decoration-line: underline;
         }
         @include res("md") {
           color: $black;
@@ -356,6 +365,9 @@
     &__top {
       position: relative;
       padding: 3rem 0;
+      img {
+        max-height: 280px;
+      }
     }
     @each $tag,
       $color
@@ -418,7 +430,7 @@
       }
     }
     &__bot {
-      margin-top: 3rem;
+      margin-top: 1rem;
       p {
         display: inline-block;
         &:nth-child(2) {
@@ -426,16 +438,6 @@
           margin-right: 5px;
           span {
             font-size: 1.8rem;
-          }
-        }
-        &:nth-last-child(2) {
-          font-size: 1.8rem;
-          margin-left: 5px;
-          text-decoration-line: line-through;
-          color: $gray;
-          span {
-            font-size: 1.2rem;
-            text-decoration: none;
           }
         }
       }
@@ -689,7 +691,7 @@
         font-size: $size/2;
       }
     }
-    @each $num in 1,2,3 {
+    @each $num in 1, 2, 3 {
       input#home-blog-quote#{$num} {
         position: absolute;
         left: -100%;
@@ -702,7 +704,6 @@
           }
         }
       }
-
     }
 
     &__quote {
@@ -720,10 +721,11 @@
           }
         }
       }
-      &--1,&--2,&--3 {
+      &--1,
+      &--2,
+      &--3 {
         display: none;
       }
-      
     }
     &__name {
       margin-top: 2rem;

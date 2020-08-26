@@ -8,7 +8,7 @@ function Menu() {
     <section className="menu">
       <div className="container menu__inner">
         <Link to="/" className="menu__logo">
-          <img src="assets/images/logo/logo.png" alt="Logo" />
+          <img src="http://localhost:4000/assets/images/logo/logo.png" alt="Logo" />
         </Link>
         <div className="menu__nav">
           <div className="menu__nav--inner">

@@ -24,3 +24,4 @@ yarn-error.log*
 
 # pre data
 pre-data.js
+route-api.js

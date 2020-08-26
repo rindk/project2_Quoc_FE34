@@ -2,16 +2,15 @@
   &detail {
     padding-bottom: 5rem;
     &__inner {
-      @include d-grid(7fr 5fr);
+      @include d-grid(1fr 1fr);
       @include res("md") {
         @include d-grid(1fr);
       }
     }
     &__img {
       &-wrapper {
-        @include d-grid(1fr 6fr);
-        @include res("md") {
-          margin-bottom: 2rem;
+        img {
+          max-height: 600px;
         }
       }
       &-list {
@@ -62,6 +61,7 @@
       border-left: none;
       padding: 1.5rem 0;
       &--star {
+        cursor: pointer;
         display: inline-block;
         direction: rtl;
         span {
@@ -77,7 +77,7 @@
           color: $champagne;
         }
       }
-      a {
+      button {
         color: $gray;
         transition: 0.3s;
         &:hover {
@@ -196,8 +196,7 @@
       @include res("xl") {
         max-width: 100%;
       }
-      @include d-grid(1fr 1fr 1fr);
-      cursor: pointer;
+      @include d-flex(flex-start);
       padding: 8px 0;
       transition: 0.3s;
       i {
@@ -210,7 +209,7 @@
         color: $gray;
         transition: 0.3s;
       }
-      a {
+      button {
         &:hover {
           i {
             color: $champagne;

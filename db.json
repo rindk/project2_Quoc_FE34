@@ -8,7 +8,7 @@
       "color": "White Wine",
       "type": "Pinot Grigio",
       "img": "/assets/products/1.jpg",
-      "status": "NEW",
+      "status": "new",
       "rating": []
     },
     {
@@ -19,7 +19,7 @@
       "color": "White Wine",
       "type": "Pinot Grigio",
       "img": "/assets/products/2.jpg",
-      "status": "SALE",
+      "status": "sale",
       "rating": []
     },
     {
@@ -30,7 +30,7 @@
       "color": "Red Wine",
       "type": "Syrah",
       "img": "/assets/products/3.jpg",
-      "status": "HOT",
+      "status": "hot",
       "rating": []
     },
     {
@@ -41,7 +41,7 @@
       "color": "Red Wine",
       "type": "Merlot",
       "img": "/assets/products/4.jpg",
-      "status": "",
+      "status": "sale",
       "rating": []
     },
     {
@@ -52,7 +52,7 @@
       "color": "White Wine",
       "type": "Chardonnay",
       "img": "/assets/products/5.jpg",
-      "status": "",
+      "status": "hot",
       "rating": []
     },
     {
@@ -63,7 +63,7 @@
       "color": "White Wine",
       "type": "Riesling",
       "img": "/assets/products/6.jpg",
-      "status": "",
+      "status": "new",
       "rating": []
     },
     {
@@ -118,7 +118,7 @@
       "color": "Red Wine",
       "type": "Merlot",
       "img": "/assets/products/11.jpg",
-      "status": "",
+      "status": "top",
       "rating": []
     },
     {
@@ -151,7 +151,7 @@
       "color": "White Wine",
       "type": "Riesling",
       "img": "/assets/products/14.jpg",
-      "status": "",
+      "status": "top",
       "rating": []
     },
     {
@@ -195,7 +195,7 @@
       "color": "Red Wine",
       "type": "Syrah",
       "img": "/assets/products/18.jpg",
-      "status": "",
+      "status": "top",
       "rating": []
     },
     {
@@ -217,7 +217,7 @@
       "color": "Red Wine",
       "type": "Zinfandel",
       "img": "/assets/products/20.jpg",
-      "status": "",
+      "status": "top",
       "rating": []
     },
     {
@@ -250,7 +250,7 @@
       "color": "Red Wine",
       "type": "Zinfandel",
       "img": "/assets/products/23.jpg",
-      "status": "",
+      "status": "top",
       "rating": []
     },
     {
@@ -283,7 +283,7 @@
       "color": "Red Wine",
       "type": "Merlot",
       "img": "/assets/products/26.jpg",
-      "status": "",
+      "status": "top",
       "rating": []
     },
     {
@@ -298,7 +298,7 @@
       "rating": []
     }
   ],
-  "user": [
+  "users": [
     {
       "id": 1,
       "email": "admin@gmail.com",

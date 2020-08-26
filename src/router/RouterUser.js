@@ -11,7 +11,7 @@ import Signup from "../components/pages/signup";
 import Address from "../components/pages/address";
 import Checkout from "../components/pages/checkout";
 
-const routerUser = [
+const RouterUser = [
   {
     path: "/",
     exact: true,
@@ -30,7 +30,7 @@ const routerUser = [
     main: () => <Contact />,
   },
   {
-    path: "/product-detail",
+    path: "/product-detail/:id",
     main: () => <ProductDetail />,
   },
   {
@@ -54,9 +54,9 @@ const routerUser = [
     main: () => <Signup />,
   },
   {
-    path: "/error",
+    path: "/*",
     main: () => <Error404 />,
   },
 ];
 
-export default routerUser;
+export default RouterUser;

@@ -1,11 +1,19 @@
-import React from "react";
-import ProductsList from "./products-list";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import ProductsList from "./productsList";
+import { fetchProductsList } from "../../redux/reducer/productsList";
 
 function Products() {
   const url = "";
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const productsList = useSelector((state) => state.productsList.value);
+
+  useEffect(() => {
+    dispatch(fetchProductsList(1));
+  }, [dispatch]);
 
   return (
     <main className="products-main">
@@ -30,7 +38,9 @@ function Products() {
           <div className="products__list">
             <div className="products__list-items">
               <div className="section__arrow--title">
-  <h1 className="section__arrow--header">{t("title.products")}</h1>
+                <h1 className="section__arrow--header">
+                  {t("title.products")}
+                </h1>
                 <img
                   className="section__arrow--icon"
                   src="assets/images/decor/2.png"
@@ -100,7 +110,36 @@ function Products() {
               alt=""
             />
           </div>
-          <ProductsList />
+          <div className="products__grid">
+            <div className="products__grid--top">
+              <div className="products__grid--show">
+                <a href={url}>
+                  <i className="fas fa-th"></i>
+                </a>
+                <a href="products-row.html">
+                  <i className="fas fa-list"></i>
+                </a>
+              </div>
+              <div className="products__grid--page">
+                <a href={url}>
+                  <i className="fas fa-caret-left"></i>
+                </a>
+                <a href={url}>1</a>
+                <a href={url}>2</a>
+                <a href={url}>3</a>
+                <a href={url}>4</a>
+                <a href={url}>5</a>
+                <a href={url}>
+                  <i className="fas fa-caret-right"></i>
+                </a>
+              </div>
+            </div>
+            <div className="products__grid--bot">
+              {productsList.map((elem, index) => (
+                <ProductsList key={index} product={elem} hasTag={false}/>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </main>

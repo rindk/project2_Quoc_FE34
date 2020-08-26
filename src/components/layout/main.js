@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import RouterUser from "../../router/routerUser";
+import RouterUser from "../../router/RouterUser";
 
 function Main() {
   return (

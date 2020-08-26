@@ -6,18 +6,21 @@ function Popup() {
 
   // Show popup after loading page 1s
   useEffect(() => {
+    const popup = document.querySelector(".popup");
     setTimeout(() => {
-      const popup = document.querySelector(".popup");
       popup.classList.remove("close");
       popup.scrollIntoView({ behavior: "smooth" });
     }, 1000);
+    window.onclick = (e) => {
+      return e.target === popup ? closePopup() : null;
+    };
   }, []);
 
   // Close popup func
   const closePopup = () => {
     document.querySelector(".popup").classList.add("close");
   };
-  
+
   return (
     <section className="popup close">
       <div className="popup__inner">
@@ -25,7 +28,10 @@ function Popup() {
           <i className="fas fa-times"></i>
         </div>
         <div className="popup__content">
-          <img src="assets/images/popup/pic.png" alt="modal" />
+          <img
+            src="http://localhost:4000/assets/images/popup/pic.png"
+            alt="popup"
+          />
           <div className="popup__content--wrapper">
             <div className="popup__content--text">
               <h1>{t("popup.header")}</h1>

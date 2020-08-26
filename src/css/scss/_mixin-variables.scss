@@ -45,7 +45,7 @@ $bps: (
   flex-direction: $dir;
   flex-wrap: wrap;
 }
-@mixin d-grid($col,$row: 1,$justify: center,$align: stretch) {
+@mixin d-grid($col,$row: 1fr,$justify: center,$align: stretch) {
   display: grid;
   grid-template-columns: $col;
   grid-template-rows: $row;

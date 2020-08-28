@@ -69,6 +69,29 @@
       background-color: $white;
       box-shadow: 5px 5px 10px 2px $des;
     }
+    &-clear {
+      border: 1px solid $des;
+      width: 100%;
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px 12px;
+      transition: 0.3s;
+      margin-bottom: 10px;
+      i {
+        color: $bordeaux;
+        margin-right: 5px;
+      }
+      span {
+        color: $black;
+        transition: 0.3s;
+      }
+      &:hover {
+        background: $champagne;
+        span {
+          color: white;
+        }
+      }
+    }
     &-items {
       margin-bottom: 4rem;
     }
@@ -87,11 +110,19 @@
       }
       li {
         margin-bottom: 10px;
+        cursor: pointer;
+        transition: 0.3s;
         &:hover {
           list-style: circle inside;
-          a {
-            color: $champagne;
-          }
+          color: $champagne;
+        }
+        span {
+          color: $champagne;
+          margin-left: 10px;
+        }
+        &.active {
+          list-style: circle inside;
+          color: #e6ae48;
         }
       }
       a {
@@ -132,7 +163,6 @@
     z-index: 1;
     &--top {
       @include d-flex(space-between);
-      border: 1px solid $des;
       padding: 10px 12px;
       a {
         color: $gray;
@@ -150,8 +180,19 @@
       }
     }
     &--page {
-      a:nth-child(2) {
-        color: $champagne;
+      button {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        background: $des;
+        color: $white;
+        transition: 0.3s;
+        &:hover {
+          background: $champagne;
+        }
+        &.active {
+          background: $champagne;
+        }
       }
     }
     &--bot {

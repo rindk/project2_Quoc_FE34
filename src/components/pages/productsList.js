@@ -1,15 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/reducer/cartStorage";
+import { addToCart } from "../commonFunction";
 
-function ProductItem({ product, hasTag }) {
+function ProductsList({ product, hasTag, slide, active }) {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
 
   return (
-    <aside className="home-new__items">
+    <aside className={`home-new__items ${slide} ${active}`}>
       <div className="home-new__top">
         {hasTag ? (
           product.status === "" ? null : (
@@ -34,18 +32,18 @@ function ProductItem({ product, hasTag }) {
         </div>
       </div>
       <div className="home-new__bot">
-        <Link
-          className="home-new__wine"
-          to={`/product-detail/${product.id}`}
-        >
-          <h4>{product.name.toUpperCase()}</h4>
+        <Link className="home-new__wine" to={`/product-detail/${product.id}`}>
+          <h4>
+            {product.name.toUpperCase()}
+            <span> ( {product.avgRating} ★) </span>
+          </h4>
         </Link>
         <p className="home-new__price price">
           {product.price}
           <span>$</span>
         </p>
         <div className="home-new__btn">
-          <button className="btn" onClick={(id) => dispatch(addToCart(id))}>
+          <button className="btn" onClick={() => addToCart(Number(product.id), 1)}>
             {t("button.addToCart")}
           </button>
         </div>
@@ -54,4 +52,4 @@ function ProductItem({ product, hasTag }) {
   );
 }
 
-export default ProductItem;
+export default ProductsList;

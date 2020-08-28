@@ -7,8 +7,6 @@ import Main from "./components/layout/main";
 import Footer from "./components/layout/footer";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchProductsHot } from "./redux/reducer/productsHot";
-import { fetchProductsTopSale } from "./redux/reducer/productsTopSale";
 import { checkLoginStt } from "./redux/reducer/loginStatus";
 
 function App() {
@@ -16,8 +14,6 @@ function App() {
 
   // Loading hot and topsale products at home page
   useEffect(() => {
-    dispatch(fetchProductsHot());
-    dispatch(fetchProductsTopSale());
     dispatch(checkLoginStt());
   }, [dispatch]);
 

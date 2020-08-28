@@ -30,7 +30,7 @@ const RouterUser = [
     main: () => <Contact />,
   },
   {
-    path: "/product-detail/:id",
+    path: "/product-detail/:productID",
     main: () => <ProductDetail />,
   },
   {

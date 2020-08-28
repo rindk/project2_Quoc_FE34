@@ -1,4 +1,15 @@
 .pdDetail- {
+  &cmt {
+    padding: 20px 0;
+    border-top: 1px solid $des;
+    h3 {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    &__inner {
+      text-align: center;
+    }
+  }
   &detail {
     padding-bottom: 5rem;
     &__inner {
@@ -224,6 +235,7 @@
     &__des {
       color: $gray;
       max-width: 80%;
+      margin-bottom: 10px;
       @include res("lg") {
         max-width: 100%;
       }

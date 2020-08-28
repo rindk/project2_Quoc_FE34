@@ -1,3 +1,6 @@
+import store from "../redux/store";
+import { updateToken } from "../redux/reducer/token";
+
 // Open/Close Modal
 export const openModal = () => {
   document.querySelector(".modal").classList.add("active");
@@ -57,12 +60,92 @@ export const signupNewAcc = async (user) => {
 
 // Check user login
 export const checkLogin = async (user) => {
-  console.log(
-    process.env.REACT_APP_SV_USERS +
-      `?email=${user.email}&password=${user.password}`
-  );
   return await fetch(
     process.env.REACT_APP_SV_USERS +
       `?email=${user.email}&password=${user.password}`
   ).then((res) => res.json());
 };
+
+// Define slider button
+export const clickSlider = (isSlider, value) => {
+  const slider =
+    isSlider === "hot"
+      ? document.querySelector("#slider_hot")
+      : isSlider === "top"
+      ? document.querySelector("#slider_top")
+      : null;
+  const slide = [...slider.querySelectorAll(".slide")];
+  const activedSlide = slide.findIndex((el) => el.classList.contains("active"));
+  if (value === "left" && activedSlide === 0) return null;
+  if (value === "right" && activedSlide >= 2) return null;
+  if (value === "right") {
+    slider.style.transform = `translateX(${(-(activedSlide + 1) * 100) / 6}%)`;
+    slide[activedSlide].classList.remove("active");
+    slide[activedSlide + 1].classList.add("active");
+  }
+  if (value === "left") {
+    slider.style.transform = `translateX(${(-(activedSlide - 1) * 100) / 6}%)`;
+    slide[activedSlide].classList.remove("active");
+    slide[activedSlide - 1].classList.add("active");
+  }
+};
+
+// add rating for product
+export const addRating = (userID, productItem, point, isRated) => {
+  const url = process.env.REACT_APP_SV_PRODUCTS + `/${productItem.id}`;
+  const data =
+    isRated === -1
+      ? {
+          ...productItem,
+          rating: [...productItem.rating, { userID: userID, point: point }],
+        }
+      : {
+          ...productItem,
+          rating: [
+            ...productItem.rating.filter((el, i) => i !== isRated),
+            { userID: userID, point: point },
+          ],
+        };
+  fetch(url, {
+    method: "PUT",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return window.location.reload();
+};
+
+// add to cart for user
+export const addToCart = async (id, qty) => {
+  const state = store.getState();
+  const token = state.token.value;
+  const loginStatus = state.loginStatus.value;
+
+  if (!loginStatus) return openModal();
+  const cart = token[0].cart;
+  const checkProduct = cart.findIndex((el) => el.productID === id);
+  const newCart =
+    cart.length === 0
+      ? [{ productID: id, qty: qty }]
+      : checkProduct === -1
+      ? [...cart, { productID: id, qty: qty }]
+      : [
+          ...cart.filter((el) => el.productID !== id),
+          { productID: id, qty: cart[checkProduct].qty + qty },
+        ];
+  const url = process.env.REACT_APP_SV_USERS + `/${token[0].id}`;
+  const data = { ...token[0], cart: newCart };
+  console.log(cart);
+  console.log(id);
+  console.log(checkProduct);
+  console.log(newCart);
+  return await fetch(url, {
+    method: "PUT",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then((res) => store.dispatch(updateToken([data])));
+};
+
+// Handle Cart (Delete 1 or all products)
+

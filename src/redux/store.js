@@ -6,6 +6,7 @@ import productItemReducer from "./reducer/productItem";
 import cartStorageReducer from "./reducer/cartStorage";
 import loginStatusReducer from "./reducer/loginStatus";
 import tokenReducer from "./reducer/token";
+import queryParamsReducer from "./reducer/queryParams";
 
 export default configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export default configureStore({
     cartStorage: cartStorageReducer,
     loginStatus: loginStatusReducer,
     token: tokenReducer,
+    queryParams: queryParamsReducer,
   },
 });

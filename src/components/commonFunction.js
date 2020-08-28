@@ -66,3 +66,33 @@ export const checkLogin = async (user) => {
       `?email=${user.email}&password=${user.password}`
   ).then((res) => res.json());
 };
+
+// Define slider button
+export const clickSlider = (isSlider, value) => {
+  const slider =
+    isSlider === "hot"
+      ? document.querySelector("#slider_hot")
+      : isSlider === "top"
+      ? document.querySelector("#slider_top")
+      : null;
+  const slide = [...slider.querySelectorAll(".slide")];
+  const activedSlide = slide.findIndex((el) => el.classList.contains("active"));
+  if (value === "left" && activedSlide === 0) return null;
+  if (value === "right" && activedSlide >= 2) return null;
+  if (value === "right") {
+    slider.style.transform = `translateX(${(-(activedSlide + 1) * 100) / 6}%)`;
+    slide[activedSlide].classList.remove("active");
+    slide[activedSlide + 1].classList.add("active");
+  }
+  if (value === "left") {
+    slider.style.transform = `translateX(${(-(activedSlide - 1) * 100) / 6}%)`;
+    slide[activedSlide].classList.remove("active");
+    slide[activedSlide - 1].classList.add("active");
+  }
+};
+
+// Calculate rating
+// export const calcRating = (rating) => {
+//   const total = rating.reduce((total, el) => (total += el.point), 0);
+//   return rating.length === 0 ? 0 : total / rating.length;
+// };

@@ -1,19 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ProductsList from "./productsList";
 import { fetchProductsList } from "../../redux/reducer/productsList";
+import { setQueryParams } from "../../redux/reducer/queryParams";
 
 function Products() {
-  const url = "";
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const productsList = useSelector((state) => state.productsList.value);
+  const queryParams = useSelector((state) => state.queryParams);
+  const [search, setSearch] = useState("");
 
+  // // Loading products
   useEffect(() => {
-    dispatch(fetchProductsList(1));
-  }, [dispatch]);
+    dispatch(fetchProductsList(queryParams));
+  }, [dispatch, queryParams]);
+
+  // Filter products
+  const filterProducts = (value) => {
+    dispatch(setQueryParams(value));
+  };
 
   return (
     <main className="products-main">
@@ -36,6 +44,15 @@ function Products() {
         </label>
         <div className="products__inner">
           <div className="products__list">
+            {queryParams.value !== "all" ? (
+              <div
+                className="products__list-clear"
+                onClick={() => filterProducts({ value: "all", page: 1 })}
+              >
+                <i className="fas fa-eraser"></i>
+                <span>Clear filter</span>
+              </div>
+            ) : null}
             <div className="products__list-items">
               <div className="section__arrow--title">
                 <h1 className="section__arrow--header">
@@ -49,59 +66,109 @@ function Products() {
               </div>
               <div className="products__list--all">
                 <div className="products__list--all-wrapper">
-                  <h5>RƯỢU NGOẠI</h5>
+                  <h5>{t("products.type.red")}</h5>
                   <ul className="products__list--ul">
-                    <li>
-                      <a href={url}>
-                        Rượu Chivas<span>(26)</span>
-                      </a>
-                    </li>
+                    {["Syrah", "Zinfandel", "Merlot"].map((el, index) => (
+                      <li
+                        key={index}
+                        className={
+                          queryParams.value === `type=${el}` ? "active" : ""
+                        }
+                        onClick={() =>
+                          filterProducts({ value: `type=${el}`, page: 1 })
+                        }
+                      >
+                        {el}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="products__list--all-wrapper">
-                  <h5>RƯỢU VANG</h5>
+                  <h5>{t("products.type.white")}</h5>
                   <ul className="products__list--ul">
-                    <li>
-                      <a href={url}>
-                        Rượu Vang Pháp<span>(44)</span>
-                      </a>
-                    </li>
+                    {["Chardonnay", "Riesling", "Pinot Grigio"].map(
+                      (el, index) => (
+                        <li
+                          key={index}
+                          className={
+                            queryParams.value === `type=${el}` ? "active" : ""
+                          }
+                          onClick={() =>
+                            filterProducts({ value: `type=${el}`, page: 1 })
+                          }
+                        >
+                          {el}
+                        </li>
+                      )
+                    )}
                   </ul>
                 </div>
               </div>
             </div>
             <div className="products__list-items">
               <div className="section__arrow--title">
-                <h1 className="section__arrow--header">SO SÁNH SẢN PHẨM</h1>
+                <h1 className="section__arrow--header">{t("title.price")}</h1>
                 <img
                   className="section__arrow--icon"
                   src="assets/images/decor/2.png"
                   alt="icon"
                 />
               </div>
-              <div className="products__list--compare">
-                <p>Bạn chưa có sản phẩm nào để so sánh</p>
+              <div className="products__list--all">
+                <ul className="products__list--ul">
+                  {[
+                    { first: 0, second: 30 },
+                    { first: 30, second: 40 },
+                    { first: 40, second: 50 },
+                    { first: 50, second: 60 },
+                  ].map((el, index) => (
+                    <li
+                      key={index}
+                      className={
+                        queryParams.value ===
+                        `price_gte=${el.first}&price_lte=${el.second}`
+                          ? "active"
+                          : ""
+                      }
+                      onClick={() =>
+                        filterProducts({
+                          value: `price_gte=${el.first}&price_lte=${el.second}`,
+                          page: 1,
+                        })
+                      }
+                    >
+                      {`$${el.first} - $${el.second}`}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div className="products__list-items">
               <div className="section__arrow--title">
-                <h1 className="section__arrow--header">TAG SẢN PHẨM</h1>
+                <h1 className="section__arrow--header">RATING</h1>
                 <img
                   className="section__arrow--icon"
                   src="assets/images/decor/2.png"
                   alt="icon"
                 />
               </div>
-              <div className="products__list--tag">
-                <a href={url}>Đồng hồ</a>
-                <a href={url}>Túi</a>
-                <a href={url}>Phụ kiện</a>
-                <a href={url}>Giày</a>
-                <a href={url}>Sandal</a>
-                <a href={url}>Áo sơ mi</a>
-                <a href={url}>Nước hoa</a>
-                <a href={url}>Trẻ em</a>
-                <a href={url}>Thời trang nữ</a>
+              <div className="products__list--all">
+                <ul className="products__list--ul">
+                  {[5, 4, 3, 2, 1].map((el, index) => (
+                    <li
+                      key={index}
+                      className={
+                        queryParams.value === `avgRating=${el}` ? "active" : ""
+                      }
+                      onClick={() =>
+                        filterProducts({ value: `avgRating=${el}`, page: 1 })
+                      }
+                    >
+                      {el}
+                      <span>★</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <img
@@ -112,32 +179,50 @@ function Products() {
           </div>
           <div className="products__grid">
             <div className="products__grid--top">
-              <div className="products__grid--show">
-                <a href={url}>
-                  <i className="fas fa-th"></i>
-                </a>
-                <a href="products-row.html">
-                  <i className="fas fa-list"></i>
-                </a>
+              <div className="home-header__search">
+                <input
+                  type="text"
+                  placeholder={t("header.search")}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  onClick={() =>
+                    filterProducts({ value: `name_like=${search}`, page: 1 })
+                  }
+                >
+                  <i className="fas fa-search"></i>
+                </button>
               </div>
               <div className="products__grid--page">
-                <a href={url}>
-                  <i className="fas fa-caret-left"></i>
-                </a>
-                <a href={url}>1</a>
-                <a href={url}>2</a>
-                <a href={url}>3</a>
-                <a href={url}>4</a>
-                <a href={url}>5</a>
-                <a href={url}>
-                  <i className="fas fa-caret-right"></i>
-                </a>
+                {[1, 2, 3].map((elem, i) => (
+                  <button
+                    key={i}
+                    className={elem === queryParams.page ? "active" : ""}
+                    onClick={() =>
+                      filterProducts({ value: queryParams.value, page: elem })
+                    }
+                  >
+                    {elem}
+                  </button>
+                ))}
               </div>
             </div>
             <div className="products__grid--bot">
-              {productsList.map((elem, index) => (
-                <ProductsList key={index} product={elem} hasTag={false}/>
-              ))}
+              {productsList.length === 0 ? (
+                <div>Không thể tìm thấy sản phẩm</div>
+              ) : (
+                productsList.map((elem, index) => (
+                  <ProductsList
+                    key={index}
+                    product={elem}
+                    hasTag={false}
+                    slide={""}
+                    active={""}
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>

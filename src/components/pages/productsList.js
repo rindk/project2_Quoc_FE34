@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/reducer/cartStorage";
 
-function ProductItem({ product, hasTag }) {
+function ProductsList({ product, hasTag, slide, active }) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   return (
-    <aside className="home-new__items">
+    <aside className={`home-new__items ${slide} ${active}`}>
       <div className="home-new__top">
         {hasTag ? (
           product.status === "" ? null : (
@@ -34,11 +34,11 @@ function ProductItem({ product, hasTag }) {
         </div>
       </div>
       <div className="home-new__bot">
-        <Link
-          className="home-new__wine"
-          to={`/product-detail/${product.id}`}
-        >
-          <h4>{product.name.toUpperCase()}</h4>
+        <Link className="home-new__wine" to={`/product-detail/${product.id}`}>
+          <h4>
+            {product.name.toUpperCase()}
+            <span> ( {product.avgRating} ★) </span>
+          </h4>
         </Link>
         <p className="home-new__price price">
           {product.price}
@@ -54,4 +54,4 @@ function ProductItem({ product, hasTag }) {
   );
 }
 
-export default ProductItem;
+export default ProductsList;

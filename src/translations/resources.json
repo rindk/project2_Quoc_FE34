@@ -69,7 +69,8 @@
         "signup": "ĐĂNG KÝ",
         "order": "ĐƠN HÀNG",
         "viewed": "SẢN PHẨM BẠN VỪA XEM",
-        "products": "DANH MỤC SẢN PHẨM"
+        "products": "DANH MỤC SẢN PHẨM",
+        "price": "GIÁ SẢN PHẨM"
       },
       "main": {
         "home": {
@@ -159,6 +160,10 @@
           "hot": "Hot",
           "sale": "Sale",
           "new": "Mới"
+        },
+        "type": {
+          "red": "RƯỢU VANG ĐỎ",
+          "white": "RƯỢU VANG TRẮNG"
         }
       },
       "user": {},

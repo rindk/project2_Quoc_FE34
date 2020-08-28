@@ -3,7 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 export const productItem = createSlice({
   name: "productItem",
   initialState: {
-    value: {},
+    value: {
+      id: 0,
+      name: "",
+      info: "",
+      price: 0,
+      color: "",
+      type: "",
+      img: "",
+      status: "",
+      rating: [],
+      avgRating: 0,
+    },
   },
   reducers: {
     getproductItem: (state, action) => {

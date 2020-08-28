@@ -1,20 +1,30 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productsListReducer from "./reducer/productsList";
+import productsCartReducer from "./reducer/productsCart";
 import productsHotReducer from "./reducer/productsHot";
 import productsTopSaleReducer from "./reducer/productsTopSale";
 import productItemReducer from "./reducer/productItem";
-import cartStorageReducer from "./reducer/cartStorage";
 import loginStatusReducer from "./reducer/loginStatus";
 import tokenReducer from "./reducer/token";
+import queryParamsReducer from "./reducer/queryParams";
+import orderListReducer from "./reducer/orderList";
+import allProductReducer from "./reducer/allProduct";
+import allOrderReducer from "./reducer/allOrder";
+import allUserReducer from "./reducer/allUser";
 
 export default configureStore({
   reducer: {
     productsList: productsListReducer,
+    productsCart: productsCartReducer,
     productsHot: productsHotReducer,
     productsTopSale: productsTopSaleReducer,
     productItem: productItemReducer,
-    cartStorage: cartStorageReducer,
     loginStatus: loginStatusReducer,
     token: tokenReducer,
+    queryParams: queryParamsReducer,
+    orderList: orderListReducer,
+    allProduct: allProductReducer,
+    allOrder: allOrderReducer,
+    allUser: allUserReducer,
   },
 });

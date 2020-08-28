@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "chart.js": "^2.9.3",
     "i18next": "^19.7.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -17,8 +18,8 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "sass" : "sass --watch src/css/style.scss:public/assets/css/style.css",
-    "json-sv": "json-server db.json --watch -p 3000",
+    "sass": "sass --watch src/css/style.scss:public/assets/css/style.css",
+    "api": "json-server db.json --watch -p 3000",
     "start": "set port=4000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

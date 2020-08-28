@@ -3,7 +3,7 @@
     "translation": {
       "header": {
         "profile": "Tài khoản của tôi",
-        "order": "Trạng thái đơn hàng",
+        "order": "Lịch sử đặt hàng",
         "cart": "Giỏ hàng",
         "login": "Đăng nhập",
         "signup": "Đăng ký",
@@ -15,7 +15,10 @@
         "intro": "GIỚI THIỆU",
         "products": "SẢN PHẨM",
         "contact": "LIÊN HỆ",
-        "address": "ĐỊA CHỈ"
+        "profile": "THÔNG TIN CỦA BẠN",
+        "checkout": "THANH TOÁN",
+        "cart": "GIỎ HÀNG",
+        "order": "ĐƠN ĐẶT HÀNG"
       },
       "footer": {
         "info": {
@@ -61,15 +64,17 @@
         "hot": "SẢN PHẨM BÁN CHẠY",
         "news&blog": "TIN TỨC & BLOG",
         "passenger": "KHÁCH HÀNG",
-        "address": "ĐỊA CHỈ",
+        "profile": "PROFILE",
         "blog": "BLOG",
         "cart": "GIỎ HÀNG",
         "contact": "LIÊN HỆ",
         "login": "ĐĂNG NHẬP",
         "signup": "ĐĂNG KÝ",
-        "order": "ĐƠN HÀNG",
+        "order": "LỊCH SỬ ĐƠN HÀNG",
         "viewed": "SẢN PHẨM BẠN VỪA XEM",
-        "products": "DANH MỤC SẢN PHẨM"
+        "products": "DANH MỤC SẢN PHẨM",
+        "price": "GIÁ SẢN PHẨM",
+        "checkout": "XÁC NHẬN THANH TOÁN"
       },
       "main": {
         "home": {
@@ -97,7 +102,8 @@
           "address": "Địa chỉ",
           "city": "Thành phố",
           "phone": "SĐT",
-          "checkbox": "Đặt làm địa chỉ mặt định?"
+          "checkbox": "Đặt làm địa chỉ mặt định?",
+          "email": "Email"
         },
         "cart": {
           "img": "ẢNH",
@@ -106,7 +112,8 @@
           "price": "GIÁ",
           "qty": "SỐ LƯỢNG",
           "total": "TỔNG SỐ",
-          "delete": "XÓA"
+          "delete": "XÓA",
+          "header": "GIỎ HÀNG CỦA BẠN"
         },
         "intro": {
           "header": "CHÀO MỪNG ĐẾN VỚI WINE HOURSE",
@@ -140,7 +147,9 @@
         "login": "ĐĂNG NHẬP",
         "signup": "ĐĂNG KÝ",
         "checkout": "THANH TOÁN",
-        "back": "QUAY LẠI"
+        "back": "QUAY LẠI",
+        "order": "ĐẶT HÀNG",
+        "cancel": "HỦY"
       },
       "products": {
         "fav": "Yêu thích",
@@ -159,6 +168,10 @@
           "hot": "Hot",
           "sale": "Sale",
           "new": "Mới"
+        },
+        "type": {
+          "red": "RƯỢU VANG ĐỎ",
+          "white": "RƯỢU VANG TRẮNG"
         }
       },
       "user": {},

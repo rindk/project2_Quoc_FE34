@@ -13,8 +13,10 @@ export const productsList = createSlice({
 });
 export const { getProductsList } = productsList.actions;
 
-export const fetchProductsList = (page) => async (dispatch) => {
-  await fetch(process.env.REACT_APP_SV_PRODUCTS + `?_page=${page}&_limit=9`)
+export const fetchProductsList = ({ value, page }) => async (dispatch) => {
+  await fetch(
+    process.env.REACT_APP_SV_PRODUCTS + `?${value}&_page=${page}&_limit=9`
+  )
     .then((res) => res.json())
     .then((data) => dispatch(getProductsList(data)));
 };

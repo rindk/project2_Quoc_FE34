@@ -10,6 +10,7 @@ import Login from "../components/pages/login";
 import Signup from "../components/pages/signup";
 import Address from "../components/pages/address";
 import Checkout from "../components/pages/checkout";
+import Order from "../components/pages/order";
 
 const RouterUser = [
   {
@@ -30,11 +31,11 @@ const RouterUser = [
     main: () => <Contact />,
   },
   {
-    path: "/product-detail/:id",
+    path: "/product-detail/:productID",
     main: () => <ProductDetail />,
   },
   {
-    path: "/address",
+    path: "/profile",
     main: () => <Address />,
   },
   {
@@ -44,6 +45,10 @@ const RouterUser = [
   {
     path: "/checkout",
     main: () => <Checkout />,
+  },
+  {
+    path: "/order",
+    main: () => <Order />,
   },
   {
     path: "/login",

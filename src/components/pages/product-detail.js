@@ -3,27 +3,63 @@ import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductItem } from "../../redux/reducer/productItem";
+import { fetchProductsList } from "../../redux/reducer/productsList";
+import { openModal, addRating, clickSlider } from "../commonFunction";
+import ProductsList from "./productsList";
+import { addToCart } from "../commonFunction";
 
 function ProductDetail() {
   const url = "";
   const [qty, setQty] = useState(1);
   const { t } = useTranslation();
-  const { id } = useParams();
+  const { productID } = useParams();
   const dispatch = useDispatch();
   const productItem = useSelector((state) => state.productItem.value);
+  const loginStatus = useSelector((state) => state.loginStatus.value);
+  const token = useSelector((state) => state.token.value);
+  const productsList = useSelector((state) => state.productsList.value);
 
   useEffect(() => {
-    dispatch(fetchProductItem(id));
-  }, [dispatch, id]);
+    dispatch(fetchProductItem(productID));
+  }, [dispatch, productID]);
 
+  useEffect(() => {
+    const value =
+      token === null
+        ? undefined
+        : token[0].viewed.reduce((final, el) => (final += `id=${el}&`), "");
+    if (value === undefined) return;
+    dispatch(fetchProductsList({ value: value, page: 1 }));
+  }, [dispatch, token]);
+
+  // Adjust quantity
   const handleQty = (e) => {
     const data = e.target.value;
+    if (data === "-" && qty === 1) return;
     if (data === "-") return setQty(qty - 1);
     if (data === "+") return setQty(qty + 1);
   };
 
+  // handle rating btn
   const handleRating = (e) => {
-    console.log(typeof e.target.dataset.star);
+    const point = Number(e.target.dataset.star);
+    if (!loginStatus) return openModal();
+    const isRated = productItem.rating.findIndex(
+      (el) => el.userID === token[0].id
+    );
+    addRating(token[0].id, productItem, point, isRated);
+  };
+
+  // handle review btn
+  const addReview = () => {
+    const comment = document.querySelector(".pdDetail-cmt");
+    comment.scrollIntoView({ behavior: "smooth", inline: "start" });
+  };
+
+  // handle submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("product ID: ", productID, " - qty: ", qty);
   };
 
   return (
@@ -46,7 +82,22 @@ function ProductDetail() {
           </div>
           <div className="pdDetail-detail__price-wrapper">
             <div className="section__arrow--title">
-              <h1 className="section__arrow--header">{productItem.name}</h1>
+              <h1 className="section__arrow--header">
+                {productItem.name}
+                <span>
+                  {" "}
+                  ({" "}
+                  {productItem.rating.length === 0
+                    ? 0
+                    : (
+                        productItem.rating.reduce(
+                          (star, el) => (star += el.point),
+                          0
+                        ) / productItem.rating.length
+                      ).toFixed(1)}{" "}
+                  ★ )
+                </span>
+              </h1>
               <img
                 className="section__arrow--icon"
                 src="../assets/images/decor/2.png"
@@ -62,18 +113,21 @@ function ProductDetail() {
                 {Array(5)
                   .fill(null)
                   .map((el, i) => (
-                    <span data-star={5 - i} onClick={handleRating}>
+                    <span key={5 - i} data-star={5 - i} onClick={handleRating}>
                       ☆
                     </span>
                   ))}
               </div>
-              <button className="pdDetail-detail__rv--link">1 Review(S)</button>
+              <button className="pdDetail-detail__rv--link">
+                {productItem.rating.length}
+                {productItem.rating.length <= 1 ? " Review" : " Reviews"}
+              </button>
               <span>|</span>
-              <button className="pdDetail-detail__rv--cmt">
+              <button className="pdDetail-detail__rv--cmt" onClick={addReview}>
                 Add Your Review
               </button>
             </div>
-            <form className="pdDetail-detail__form" action="#">
+            <form className="pdDetail-detail__form" onSubmit={handleSubmit}>
               <div className="pdDetail-detail__color">
                 <label htmlFor="color">{t("products.color")}</label>
                 <div>
@@ -122,6 +176,7 @@ function ProductDetail() {
                     step="1"
                     min="1"
                     value={qty}
+                    readOnly
                   />
                   <input
                     className="number"
@@ -131,11 +186,12 @@ function ProductDetail() {
                     onClick={handleQty}
                   />
                 </div>
-                <input
+                <button
                   className="btn"
-                  type="submit"
-                  value={t("button.addToCart")}
-                />
+                  onClick={() => addToCart(productID, qty)}
+                >
+                  {t("button.addToCart")}
+                </button>
               </div>
             </form>
             <div className="pdDetail-detail__fav">
@@ -152,6 +208,21 @@ function ProductDetail() {
               {t("products.desc")}
               <p>{t("products.content")}</p>
             </div>
+            <div
+              className="fb-share-button"
+              data-href={`http://localhost:4000/productdetail/${productID}`}
+              data-layout="button"
+              data-size="large"
+            >
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fproduct-detail%2F${productID}&amp;src=sdkpreparse`}
+                className="fb-xfbml-parse-ignore"
+              >
+                Share
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -165,176 +236,48 @@ function ProductDetail() {
       </div>
       <section className="home-new">
         <div className="container home-new__inner">
-          <a className="home-new__left" href={url}>
-            <i className="fas fa-arrow-left"></i>
-          </a>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--none"></p>
-              <img
-                className="home-new__img"
-                src="assets/images/top-sales/1.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  {" "}
-                  <i className="fas fa-compress-alt"></i>
-                </a>
+          {productsList.length === 0 ? (
+            <span style={{ fontStyle: "italic" }}>
+              Bạn cần đăng nhập để xem sản phẩm
+            </span>
+          ) : (
+            <>
+              <button
+                className="home-new__left"
+                onClick={() => clickSlider("hot", "left")}
+              >
+                <i className="fas fa-arrow-left"></i>
+              </button>
+              <button
+                className="home-new__right"
+                onClick={() => clickSlider("hot", "right")}
+              >
+                <i className="fas fa-arrow-right"></i>
+              </button>
+              <div id="slider_hot" className="slider">
+                {productsList.map((elem, index) => (
+                  <ProductsList
+                    key={index}
+                    product={elem}
+                    hasTag={false}
+                    slide={"slide"}
+                    active={index === 0 ? "active" : ""}
+                  />
+                ))}
               </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--none"></p>
-              <img
-                className="home-new__img"
-                src="assets/images/top-sales/2.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  {" "}
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--none"></p>
-              <img
-                className="home-new__img"
-                src="assets/images/top-sales/3.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  {" "}
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <aside className="home-new__items">
-            <div className="home-new__top">
-              <p className="home-new__tag--none"></p>
-              <img
-                className="home-new__img"
-                src="assets/images/top-sales/4.png"
-                alt="wine"
-              />
-              <div className="home-new__label">
-                <a href={url}>
-                  <i className="fas fa-heart"></i>
-                  <span>{t("products.fav")}</span>
-                </a>
-                <a href={url}>
-                  <i className="fas fa-signal"></i>
-                  <span>{t("products.comp")}</span>
-                </a>
-                <a href={url}>
-                  {" "}
-                  <i className="fas fa-compress-alt"></i>
-                </a>
-              </div>
-            </div>
-            <div className="home-new__bot">
-              <a className="home-new__wine" href={url}>
-                <h4>RƯỢU VANG ĐÀ LẠT</h4>
-              </a>
-              <p className="home-new__price price">
-                370.000<span>đ</span>
-              </p>
-              <span>-</span>
-              <p className="price">
-                450.000<span>đ</span>
-              </p>
-              <div className="home-new__btn">
-                <a href={url} className="btn">
-                  {t("button.addToCart")}
-                </a>
-              </div>
-            </div>
-          </aside>
-          <a className="home-new__right" href={url}>
-            <i className="fas fa-arrow-right"></i>
-          </a>
+            </>
+          )}
+        </div>
+      </section>
+      <section className="pdDetail-cmt container">
+        <h3>BÌNH LUẬN</h3>
+        <div className="pdDetail-cmt__inner">
+          <div
+            className="fb-comments"
+            data-href={`http://localhost:4000/product-detail/${productID}`}
+            data-numposts="5"
+            data-width=""
+          ></div>
         </div>
       </section>
     </main>

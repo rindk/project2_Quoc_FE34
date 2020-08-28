@@ -1,0 +1,80 @@
+.checkout {
+  &__inner {
+    @include d-grid(1fr 1fr);
+    grid-column-gap: 5rem;
+  }
+  &__address {
+    &--header {
+      margin-bottom: 2rem;
+    }
+    &--inner {
+      @include d-grid(2fr 3fr);
+      grid-column-gap: 2rem;
+      border: 1px solid $des;
+      padding-left: 2rem;
+      h4,
+      p {
+        padding: 1.5rem 0;
+      }
+    }
+    .btn {
+      margin-top: 2rem;
+    }
+  }
+  &__cart {
+    &--header {
+      margin-bottom: 2rem;
+    }
+    &--inner {
+      border: 1px solid $des;
+      padding: 0 2rem;
+    }
+    &--row {
+      @include d-grid(2fr 1fr 1fr);
+      border-bottom: 1px solid $bordeaux;
+      h4 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding: 1.5rem 0;
+        margin: auto 0;
+        &:first-child {
+          margin: 0;
+        }
+      }
+      h5,
+      span,
+      p {
+        padding: 1rem 0;
+      }
+      span,
+      p {
+        margin: auto;
+      }
+      p.price {
+        font-size: 1.8rem;
+        span {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    &--total {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      @include d-flex(space-between);
+      h3 {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      p.price {
+        font-size: 2rem;
+        margin-right: 10%;
+        span {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    .btn {
+      margin-top: 2rem;
+    }
+  }
+}

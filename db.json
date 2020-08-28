@@ -9,7 +9,13 @@
       "type": "Pinot Grigio",
       "img": "/assets/products/1.jpg",
       "status": "new",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 5
+        }
+      ],
+      "avgRating": 5
     },
     {
       "id": 2,
@@ -20,7 +26,13 @@
       "type": "Pinot Grigio",
       "img": "/assets/products/2.jpg",
       "status": "sale",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 4
+        }
+      ],
+      "avgRating": 4
     },
     {
       "id": 3,
@@ -31,7 +43,21 @@
       "type": "Syrah",
       "img": "/assets/products/3.jpg",
       "status": "hot",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 2
+        },
+        {
+          "userID": 5,
+          "point": 5
+        },
+        {
+          "userID": 7,
+          "point": 3
+        }
+      ],
+      "avgRating": 2
     },
     {
       "id": 4,
@@ -42,7 +68,13 @@
       "type": "Merlot",
       "img": "/assets/products/4.jpg",
       "status": "sale",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 5
+        }
+      ],
+      "avgRating": 5
     },
     {
       "id": 5,
@@ -53,7 +85,17 @@
       "type": "Chardonnay",
       "img": "/assets/products/5.jpg",
       "status": "hot",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 1
+        },
+        {
+          "userID": 7,
+          "point": 5
+        }
+      ],
+      "avgRating": 1
     },
     {
       "id": 6,
@@ -64,7 +106,13 @@
       "type": "Riesling",
       "img": "/assets/products/6.jpg",
       "status": "new",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 3
+        }
+      ],
+      "avgRating": 3
     },
     {
       "id": 7,
@@ -75,7 +123,13 @@
       "type": "Syrah",
       "img": "/assets/products/7.jpg",
       "status": "",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 3
+        }
+      ],
+      "avgRating": 3
     },
     {
       "id": 8,
@@ -86,7 +140,13 @@
       "type": "Syrah",
       "img": "/assets/products/8.jpg",
       "status": "",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 4
+        }
+      ],
+      "avgRating": 4
     },
     {
       "id": 9,
@@ -97,7 +157,8 @@
       "type": "Zinfandel",
       "img": "/assets/products/9.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 1
     },
     {
       "id": 10,
@@ -108,7 +169,13 @@
       "type": "Syrah",
       "img": "/assets/products/10.jpg",
       "status": "",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 2
+        }
+      ],
+      "avgRating": 2
     },
     {
       "id": 11,
@@ -119,7 +186,13 @@
       "type": "Merlot",
       "img": "/assets/products/11.jpg",
       "status": "top",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 2
+        }
+      ],
+      "avgRating": 2
     },
     {
       "id": 12,
@@ -130,7 +203,8 @@
       "type": "Chardonnay",
       "img": "/assets/products/12.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 4
     },
     {
       "id": 13,
@@ -141,7 +215,8 @@
       "type": "Chardonnay",
       "img": "/assets/products/13.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 5
     },
     {
       "id": 14,
@@ -152,7 +227,8 @@
       "type": "Riesling",
       "img": "/assets/products/14.jpg",
       "status": "top",
-      "rating": []
+      "rating": [],
+      "avgRating": 4
     },
     {
       "id": 15,
@@ -163,7 +239,8 @@
       "type": "Merlot",
       "img": "/assets/products/15.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 1
     },
     {
       "id": 16,
@@ -174,18 +251,20 @@
       "type": "Riesling",
       "img": "/assets/products/16.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 3
     },
     {
       "id": 17,
       "name": "El Circo",
       "info": "El Circo takes this name because an ancient legend recounts that a temple dedicated to Hercules was erected on our soil. This context and the legendary references are just a few of the elements that give a peculiar energy to El Circo wines.",
-      "price": 51,
+      "price": 23,
       "color": "Red Wine",
       "type": "Syrah",
       "img": "/assets/products/17.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 5
     },
     {
       "id": 18,
@@ -196,7 +275,17 @@
       "type": "Syrah",
       "img": "/assets/products/18.jpg",
       "status": "top",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 4
+        },
+        {
+          "userID": 7,
+          "point": 5
+        }
+      ],
+      "avgRating": 2
     },
     {
       "id": 19,
@@ -207,7 +296,13 @@
       "type": "Merlot",
       "img": "/assets/products/19.jpg",
       "status": "",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 2
+        }
+      ],
+      "avgRating": 1
     },
     {
       "id": 20,
@@ -218,7 +313,8 @@
       "type": "Zinfandel",
       "img": "/assets/products/20.jpg",
       "status": "top",
-      "rating": []
+      "rating": [],
+      "avgRating": 2
     },
     {
       "id": 21,
@@ -229,7 +325,8 @@
       "type": "Chardonnay",
       "img": "/assets/products/21.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 3
     },
     {
       "id": 22,
@@ -240,7 +337,8 @@
       "type": "Pinot Grigio",
       "img": "/assets/products/22.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 2
     },
     {
       "id": 23,
@@ -251,7 +349,8 @@
       "type": "Zinfandel",
       "img": "/assets/products/23.jpg",
       "status": "top",
-      "rating": []
+      "rating": [],
+      "avgRating": 5
     },
     {
       "id": 24,
@@ -262,7 +361,17 @@
       "type": "Riesling",
       "img": "/assets/products/24.jpg",
       "status": "",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 4
+        },
+        {
+          "userID": 7,
+          "point": 5
+        }
+      ],
+      "avgRating": 4
     },
     {
       "id": 25,
@@ -273,7 +382,8 @@
       "type": "Pinot Grigio",
       "img": "/assets/products/25.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 4
     },
     {
       "id": 26,
@@ -284,7 +394,13 @@
       "type": "Merlot",
       "img": "/assets/products/26.jpg",
       "status": "top",
-      "rating": []
+      "rating": [
+        {
+          "userID": 2,
+          "point": 5
+        }
+      ],
+      "avgRating": 5
     },
     {
       "id": 27,
@@ -295,7 +411,20 @@
       "type": "Zinfandel",
       "img": "/assets/products/27.jpg",
       "status": "",
-      "rating": []
+      "rating": [],
+      "avgRating": 3
+    },
+    {
+      "id": 28,
+      "name": "demo",
+      "info": "Studio takes this name because an ancient legend recounts that a temple dedicated to Hercules was erected on our soil. This context and the legendary references are just a few of the elements that give a peculiar energy to Studio wines.",
+      "price": "30",
+      "color": "Red Wine",
+      "type": "Zinfandel",
+      "img": "/assets/products/27.jpg",
+      "status": "sale",
+      "rating": [],
+      "avgRating": 3
     }
   ],
   "users": [
@@ -315,7 +444,15 @@
       "address": "64 Tran Phu",
       "city": "Hue",
       "phone": "0924840964",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        9,
+        23,
+        22,
+        6,
+        20,
+        10
+      ]
     },
     {
       "id": 3,
@@ -327,7 +464,15 @@
       "address": "20 Tran Quoc Toan",
       "city": "Ho Chi Minh",
       "phone": "0946537220",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        18,
+        14,
+        1,
+        4,
+        16,
+        7
+      ]
     },
     {
       "id": 4,
@@ -339,7 +484,24 @@
       "address": "53 Vo Van Kiet",
       "city": "Hai Phong",
       "phone": "0966001553",
-      "cart": []
+      "cart": [
+        {
+          "productID": 6,
+          "qty": 1
+        },
+        {
+          "productID": 9,
+          "qty": 2
+        }
+      ],
+      "viewed": [
+        21,
+        2,
+        15,
+        13,
+        7,
+        19
+      ]
     },
     {
       "id": 5,
@@ -351,7 +513,15 @@
       "address": "93 Tran Phu",
       "city": "Ho Chi Minh",
       "phone": "0917345393",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        5,
+        25,
+        19,
+        22,
+        11,
+        1
+      ]
     },
     {
       "id": 6,
@@ -363,7 +533,15 @@
       "address": "19 Tran Phu",
       "city": "Phan Thiet",
       "phone": "0905536519",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        3,
+        14,
+        13,
+        17,
+        8,
+        6
+      ]
     },
     {
       "id": 7,
@@ -375,7 +553,28 @@
       "address": "09 Nguyen Hue",
       "city": "Quang Ngai",
       "phone": "0945166509",
-      "cart": []
+      "cart": [
+        {
+          "productID": 20,
+          "qty": 1
+        },
+        {
+          "productID": 11,
+          "qty": 1
+        },
+        {
+          "productID": 16,
+          "qty": 1
+        }
+      ],
+      "viewed": [
+        2,
+        20,
+        4,
+        8,
+        18,
+        24
+      ]
     },
     {
       "id": 8,
@@ -387,7 +586,15 @@
       "address": "22 Tran Hung Dao",
       "city": "Quang Nam",
       "phone": "0908353622",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        11,
+        25,
+        13,
+        24,
+        2,
+        17
+      ]
     },
     {
       "id": 9,
@@ -399,7 +606,15 @@
       "address": "60 Pham Van Dong",
       "city": "Ho Chi Minh",
       "phone": "0956468160",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        15,
+        19,
+        25,
+        19,
+        6,
+        27
+      ]
     },
     {
       "id": 10,
@@ -411,7 +626,15 @@
       "address": "33 Pham Van Dong",
       "city": "Hue",
       "phone": "0997904233",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        6,
+        5,
+        16,
+        2,
+        12,
+        20
+      ]
     },
     {
       "id": 11,
@@ -423,19 +646,881 @@
       "address": "61 Le Duan",
       "city": "Hai Phong",
       "phone": "0900519961",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        16,
+        24,
+        22,
+        19,
+        9,
+        3
+      ]
     },
     {
       "id": 12,
       "type": "user",
-      "firstName": "tai",
+      "firstName": "Tai",
       "lastName": "nguyen",
       "email": "tainguyen@gmail.com",
       "password": "123456",
       "address": "61 Vo Van Kiet",
       "city": "Nha Trang",
       "phone": "0993341561",
-      "cart": []
+      "cart": [],
+      "viewed": [
+        10,
+        21,
+        18,
+        5,
+        25,
+        15
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "userID": 12,
+      "name": "tai",
+      "phone": "0993341561",
+      "address": "61 Vo Van Kiet",
+      "city": "Nha Trang",
+      "cart": [
+        {
+          "productID": 11,
+          "qty": 3
+        },
+        {
+          "productID": 12,
+          "qty": 1
+        },
+        {
+          "productID": 14,
+          "qty": 2
+        }
+      ],
+      "total": 231,
+      "orderDate": "16:50:34, 31/7/2020",
+      "status": "shipped",
+      "id": 1
+    },
+    {
+      "userID": 12,
+      "name": "tai",
+      "phone": "0993341561",
+      "address": "61 Vo Van Kiet",
+      "city": "Nha Trang",
+      "cart": [
+        {
+          "productID": 15,
+          "qty": 1
+        },
+        {
+          "productID": 13,
+          "qty": 1
+        },
+        {
+          "productID": 4,
+          "qty": 1
+        },
+        {
+          "productID": 26,
+          "qty": 2
+        }
+      ],
+      "total": 217,
+      "orderDate": "11:52:22, 21/8/2020",
+      "status": "canceled",
+      "id": 2
+    },
+    {
+      "userID": 12,
+      "name": "tai",
+      "phone": "0993341561",
+      "address": "61 Vo Van Kiet",
+      "city": "Nha Trang",
+      "cart": [
+        {
+          "productID": 21,
+          "qty": 2
+        },
+        {
+          "productID": 23,
+          "qty": 2
+        },
+        {
+          "productID": 27,
+          "qty": 2
+        }
+      ],
+      "total": 214,
+      "orderDate": "09:55:01, 11/6/2020",
+      "status": "shipped",
+      "id": 3
+    },
+    {
+      "userID": 2,
+      "name": "khanh",
+      "phone": "0924840964",
+      "address": "64 Tran Phu",
+      "city": "Hue",
+      "cart": [
+        {
+          "productID": 23,
+          "qty": 3
+        },
+        {
+          "productID": 20,
+          "qty": 1
+        },
+        {
+          "productID": 8,
+          "qty": 1
+        }
+      ],
+      "total": 246,
+      "orderDate": "10:02:10, 1/9/2020",
+      "status": "shipped",
+      "id": 4
+    },
+    {
+      "userID": 3,
+      "name": "hai",
+      "phone": "0946537220",
+      "address": "20 Tran Quoc Toan",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 6,
+          "qty": 2
+        },
+        {
+          "productID": 21,
+          "qty": 2
+        },
+        {
+          "productID": 16,
+          "qty": 2
+        }
+      ],
+      "total": 266,
+      "orderDate": "14:18:04, 31/8/2020",
+      "status": "ordered",
+      "id": 5
+    },
+    {
+      "userID": 3,
+      "name": "hai",
+      "phone": "0946537220",
+      "address": "20 Tran Quoc Toan",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 12,
+          "qty": 1
+        }
+      ],
+      "total": 52,
+      "orderDate": "12:38:20, 15/7/2020",
+      "status": "shipped",
+      "id": 6
+    },
+    {
+      "userID": 3,
+      "name": "hai",
+      "phone": "0946537220",
+      "address": "20 Tran Quoc Toan",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 18,
+          "qty": 1
+        }
+      ],
+      "total": 30,
+      "orderDate": "17:41:37, 7/8/2020",
+      "status": "shipped",
+      "id": 7
+    },
+    {
+      "userID": 4,
+      "name": "son",
+      "phone": "0966001553",
+      "address": "53 Vo Van Kiet",
+      "city": "Hai Phong",
+      "cart": [
+        {
+          "productID": 9,
+          "qty": 2
+        },
+        {
+          "productID": 26,
+          "qty": 2
+        }
+      ],
+      "total": 182,
+      "orderDate": "20:50:42, 22/8/2020",
+      "status": "shipped",
+      "id": 8
+    },
+    {
+      "userID": 4,
+      "name": "son",
+      "phone": "0966001553",
+      "address": "53 Vo Van Kiet",
+      "city": "Hai Phong",
+      "cart": [
+        {
+          "productID": 13,
+          "qty": 1
+        },
+        {
+          "productID": 14,
+          "qty": 1
+        },
+        {
+          "productID": 15,
+          "qty": 1
+        }
+      ],
+      "total": 136,
+      "orderDate": "12:00:04, 29/8/2020",
+      "status": "shipped",
+      "id": 9
+    },
+    {
+      "userID": 6,
+      "name": "nhat",
+      "phone": "0905536519",
+      "address": "19 Tran Phu",
+      "city": "Phan Thiet",
+      "cart": [
+        {
+          "productID": 23,
+          "qty": 2
+        }
+      ],
+      "total": 98,
+      "orderDate": "15:32:44, 27/6/2020",
+      "status": "shipped",
+      "id": 10
+    },
+    {
+      "userID": 7,
+      "name": "nhat",
+      "phone": "0945166509",
+      "address": "09 Nguyen Hue",
+      "city": "Quang Ngai",
+      "cart": [
+        {
+          "productID": 20,
+          "qty": 1
+        },
+        {
+          "productID": 11,
+          "qty": 1
+        },
+        {
+          "productID": 16,
+          "qty": 1
+        }
+      ],
+      "total": 151,
+      "orderDate": "07:01:21, 3/7/2020",
+      "status": "shipped",
+      "id": 11
+    },
+    {
+      "userID": 8,
+      "name": "tai",
+      "phone": "0908353622",
+      "address": "22 Tran Hung Dao",
+      "city": "Quang Nam",
+      "cart": [
+        {
+          "productID": 5,
+          "qty": 1
+        },
+        {
+          "productID": 6,
+          "qty": 1
+        },
+        {
+          "productID": 2,
+          "qty": 1
+        },
+        {
+          "productID": 1,
+          "qty": 2
+        }
+      ],
+      "total": 231,
+      "orderDate": "09:51:58, 5/8/2020",
+      "status": "shipped",
+      "id": 12
+    },
+    {
+      "userID": 8,
+      "name": "tai",
+      "phone": "0908353622",
+      "address": "22 Tran Hung Dao",
+      "city": "Quang Nam",
+      "cart": [
+        {
+          "productID": 7,
+          "qty": 1
+        },
+        {
+          "productID": 8,
+          "qty": 1
+        },
+        {
+          "productID": 6,
+          "qty": 1
+        }
+      ],
+      "total": 148,
+      "orderDate": "19:39:35, 6/7/2020",
+      "status": "shipped",
+      "id": 13
+    },
+    {
+      "userID": 9,
+      "name": "lam",
+      "phone": "0956468160",
+      "address": "60 Pham Van Dong",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 10,
+          "qty": 1
+        },
+        {
+          "productID": 13,
+          "qty": 2
+        }
+      ],
+      "total": 130,
+      "orderDate": "22:23:36, 9/7/2020",
+      "status": "shipped",
+      "id": 14
+    },
+    {
+      "userID": 10,
+      "name": "duong",
+      "phone": "0997904233",
+      "address": "33 Pham Van Dong",
+      "city": "Hue",
+      "cart": [
+        {
+          "productID": 27,
+          "qty": 2
+        }
+      ],
+      "total": 56,
+      "orderDate": "15:05:05, 16/8/2020",
+      "status": "shipped",
+      "id": 15
+    },
+    {
+      "userID": 2,
+      "name": "khanh",
+      "phone": "0924840964",
+      "address": "64 Tran Phu",
+      "city": "Hue",
+      "cart": [
+        {
+          "productID": 3,
+          "qty": 2
+        },
+        {
+          "productID": 2,
+          "qty": 1
+        },
+        {
+          "productID": 19,
+          "qty": 1
+        },
+        {
+          "productID": 22,
+          "qty": 1
+        }
+      ],
+      "total": 229,
+      "orderDate": "20:54:22, 1/8/2020",
+      "status": "shipped",
+      "id": 16
+    },
+    {
+      "userID": 2,
+      "name": "khanh",
+      "phone": "0924840964",
+      "address": "64 Tran Phu",
+      "city": "Hue",
+      "cart": [
+        {
+          "productID": 6,
+          "qty": 2
+        },
+        {
+          "productID": 9,
+          "qty": 1
+        }
+      ],
+      "total": 146,
+      "orderDate": "20:05:41, 22/8/2020",
+      "status": "shipped",
+      "id": 17
+    },
+    {
+      "userID": 5,
+      "name": "tien",
+      "phone": "0917345393",
+      "address": "93 Tran Phu",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 12,
+          "qty": 2
+        },
+        {
+          "productID": 18,
+          "qty": 1
+        }
+      ],
+      "total": 134,
+      "orderDate": "10:57:09, 3/8/2020",
+      "status": "shipped",
+      "id": 18
+    },
+    {
+      "userID": 5,
+      "name": "tien",
+      "phone": "0917345393",
+      "address": "93 Tran Phu",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 24,
+          "qty": 1
+        },
+        {
+          "productID": 23,
+          "qty": 2
+        },
+        {
+          "productID": 25,
+          "qty": 1
+        },
+        {
+          "productID": 26,
+          "qty": 1
+        }
+      ],
+      "total": 218,
+      "orderDate": "21:00:30, 17/7/2020",
+      "status": "shipped",
+      "id": 19
+    },
+    {
+      "userID": 11,
+      "name": "hang",
+      "phone": "0900519961",
+      "address": "61 Le Duan",
+      "city": "Hai Phong",
+      "cart": [
+        {
+          "productID": 22,
+          "qty": 2
+        },
+        {
+          "productID": 8,
+          "qty": 2
+        }
+      ],
+      "total": 188,
+      "orderDate": "18:06:06, 30/6/2020",
+      "status": "shipped",
+      "id": 20
+    },
+    {
+      "userID": 3,
+      "name": "hai",
+      "phone": "0946537220",
+      "address": "20 Tran Quoc Toan",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 7,
+          "qty": 1
+        },
+        {
+          "productID": 5,
+          "qty": 2
+        },
+        {
+          "productID": 6,
+          "qty": 1
+        },
+        {
+          "productID": 10,
+          "qty": 2
+        }
+      ],
+      "total": 301,
+      "orderDate": "18:04:48, 2/9/2020",
+      "status": "ordered",
+      "id": 21
+    },
+    {
+      "userID": 3,
+      "name": "hai",
+      "phone": "0946537220",
+      "address": "20 Tran Quoc Toan",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 15,
+          "qty": 2
+        },
+        {
+          "productID": 12,
+          "qty": 2
+        }
+      ],
+      "total": 222,
+      "orderDate": "10:05:12, 2/9/2020",
+      "status": "ordered",
+      "id": 22
+    },
+    {
+      "userID": 4,
+      "name": "son",
+      "phone": "0966001553",
+      "address": "53 Vo Van Kiet",
+      "city": "Hai Phong",
+      "cart": [
+        {
+          "productID": 13,
+          "qty": 1
+        },
+        {
+          "productID": 14,
+          "qty": 1
+        },
+        {
+          "productID": 15,
+          "qty": 1
+        },
+        {
+          "productID": 1,
+          "qty": 2
+        },
+        {
+          "productID": 4,
+          "qty": 2
+        }
+      ],
+      "total": 308,
+      "orderDate": "18:06:09, 2/5/2020",
+      "status": "shipped",
+      "id": 23
+    },
+    {
+      "userID": 4,
+      "name": "son",
+      "phone": "0966001553",
+      "address": "53 Vo Van Kiet",
+      "city": "Hai Phong",
+      "cart": [
+        {
+          "productID": 6,
+          "qty": 1
+        },
+        {
+          "productID": 9,
+          "qty": 2
+        }
+      ],
+      "total": 151,
+      "orderDate": "09:06:55, 22/5/2020",
+      "status": "shipped",
+      "id": 24
+    },
+    {
+      "userID": 6,
+      "name": "nhat",
+      "phone": "0905536519",
+      "address": "19 Tran Phu",
+      "city": "Phan Thiet",
+      "cart": [
+        {
+          "productID": 11,
+          "qty": 1
+        },
+        {
+          "productID": 14,
+          "qty": 1
+        },
+        {
+          "productID": 15,
+          "qty": 2
+        }
+      ],
+      "total": 189,
+      "orderDate": "15:07:40, 27/6/2020",
+      "status": "canceled",
+      "id": 25
+    },
+    {
+      "userID": 6,
+      "name": "nhat",
+      "phone": "0905536519",
+      "address": "19 Tran Phu",
+      "city": "Phan Thiet",
+      "cart": [
+        {
+          "productID": 24,
+          "qty": 1
+        },
+        {
+          "productID": 27,
+          "qty": 1
+        },
+        {
+          "productID": 19,
+          "qty": 1
+        }
+      ],
+      "total": 102,
+      "orderDate": "11:30:23, 28/5/2020",
+      "status": "shipped",
+      "id": 26
+    },
+    {
+      "userID": 8,
+      "name": "tai",
+      "phone": "0908353622",
+      "address": "22 Tran Hung Dao",
+      "city": "Quang Nam",
+      "cart": [
+        {
+          "productID": 19,
+          "qty": 2
+        },
+        {
+          "productID": 21,
+          "qty": 2
+        },
+        {
+          "productID": 23,
+          "qty": 3
+        }
+      ],
+      "total": 265,
+      "orderDate": "20:09:40, 2/6/2020",
+      "status": "shipped",
+      "id": 27
+    },
+    {
+      "userID": 8,
+      "name": "tai",
+      "phone": "0908353622",
+      "address": "22 Tran Hung Dao",
+      "city": "Quang Nam",
+      "cart": [
+        {
+          "productID": 7,
+          "qty": 2
+        },
+        {
+          "productID": 5,
+          "qty": 1
+        }
+      ],
+      "total": 173,
+      "orderDate": "22:10:11, 30/5/2020",
+      "status": "shipped",
+      "id": 28
+    },
+    {
+      "userID": 9,
+      "name": "lam",
+      "phone": "0956468160",
+      "address": "60 Pham Van Dong",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 6,
+          "qty": 2
+        },
+        {
+          "productID": 27,
+          "qty": 3
+        }
+      ],
+      "total": 178,
+      "orderDate": "18:11:10, 2/9/2020",
+      "status": "ordered",
+      "id": 29
+    },
+    {
+      "userID": 9,
+      "name": "lam",
+      "phone": "0956468160",
+      "address": "60 Pham Van Dong",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 13,
+          "qty": 1
+        },
+        {
+          "productID": 18,
+          "qty": 1
+        },
+        {
+          "productID": 17,
+          "qty": 2
+        }
+      ],
+      "total": 119,
+      "orderDate": "23:11:34, 15/7/2020",
+      "status": "shipped",
+      "id": 30
+    },
+    {
+      "userID": 9,
+      "name": "lam",
+      "phone": "0956468160",
+      "address": "60 Pham Van Dong",
+      "city": "Ho Chi Minh",
+      "cart": [
+        {
+          "productID": 23,
+          "qty": 1
+        },
+        {
+          "productID": 19,
+          "qty": 1
+        }
+      ],
+      "total": 78,
+      "orderDate": "07:12:08, 8/8/2020",
+      "status": "shipped",
+      "id": 31
+    },
+    {
+      "userID": 10,
+      "name": "duong",
+      "phone": "0997904233",
+      "address": "33 Pham Van Dong",
+      "city": "Hue",
+      "cart": [
+        {
+          "productID": 4,
+          "qty": 2
+        }
+      ],
+      "total": 74,
+      "orderDate": "09:13:41, 1/9/2020",
+      "status": "ordered",
+      "id": 32
+    },
+    {
+      "userID": 10,
+      "name": "duong",
+      "phone": "0997904233",
+      "address": "33 Pham Van Dong",
+      "city": "Hue",
+      "cart": [
+        {
+          "productID": 1,
+          "qty": 1
+        },
+        {
+          "productID": 6,
+          "qty": 1
+        },
+        {
+          "productID": 5,
+          "qty": 1
+        }
+      ],
+      "total": 149,
+      "orderDate": "18:14:10, 24/6/2020",
+      "status": "shipped",
+      "id": 33
+    },
+    {
+      "userID": 10,
+      "name": "duong",
+      "phone": "0997904233",
+      "address": "33 Pham Van Dong",
+      "city": "Hue",
+      "cart": [
+        {
+          "productID": 4,
+          "qty": 1
+        },
+        {
+          "productID": 7,
+          "qty": 1
+        },
+        {
+          "productID": 9,
+          "qty": 1
+        }
+      ],
+      "total": 149,
+      "orderDate": "22:14:43, 17/5/2020",
+      "status": "shipped",
+      "id": 34
+    },
+    {
+      "userID": 11,
+      "name": "hang",
+      "phone": "0900519961",
+      "address": "61 Le Duan",
+      "city": "Hai Phong",
+      "cart": [
+        {
+          "productID": 6,
+          "qty": 1
+        },
+        {
+          "productID": 9,
+          "qty": 1
+        },
+        {
+          "productID": 8,
+          "qty": 2
+        }
+      ],
+      "total": 181,
+      "orderDate": "08:15:44, 20/5/2020",
+      "status": "shipped",
+      "id": 35
+    },
+    {
+      "userID": 11,
+      "name": "hang",
+      "phone": "0900519961",
+      "address": "61 Le Duan",
+      "city": "Hai Phong",
+      "cart": [
+        {
+          "productID": 11,
+          "qty": 2
+        },
+        {
+          "productID": 12,
+          "qty": 1
+        }
+      ],
+      "total": 126,
+      "orderDate": "10:16:14, 11/6/2020",
+      "status": "canceled",
+      "id": 36
     }
   ]
 }

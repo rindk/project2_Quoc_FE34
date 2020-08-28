@@ -1,4 +1,34 @@
 .cart {
+  &__total {
+    @include d-grid(70% 30%);
+    padding: 1rem 0;
+    border: 1px solid $des;
+    margin-bottom: 2rem;
+    background-color: $light;
+    h3 {
+      padding: 1rem 0 1rem 3rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    h4 {
+      padding: 1rem 0 1rem 3rem;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    p.price {
+      font-size: 2.4rem;
+      margin: auto;
+      span {
+        font-size: 1.6rem;
+      }
+    }
+    p {
+      font-size: 1.8rem;
+      margin: auto;
+    }
+  }
   &__table-row {
     @include d-grid(17% 30% 14% 17% 14% 8%);
     @include res("sm") {

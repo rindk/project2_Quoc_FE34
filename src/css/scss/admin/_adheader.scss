@@ -1,0 +1,36 @@
+.ad-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  &__inner {
+    height: 100px;
+    background-color: $black;
+    padding: 0 5rem;
+    @include d-flex(space-between);
+    .logo {
+      @include d-flex();
+      img {
+        max-width: 100px;
+      }
+      p {
+        margin-left: 2rem;
+        font-family: cursive;
+        font-size: 3.6rem;
+        color: $des;
+        letter-spacing: 5px;
+      }
+    }
+    .admin {
+      color: $des;
+      button {
+        color: $des;
+        margin-right: 3rem;
+        transition: 0.3s;
+        &:hover {
+          color: $champagne;
+        }
+      }
+    }
+  }
+}

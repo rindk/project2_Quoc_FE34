@@ -1,0 +1,28 @@
+.ad-sidebar {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 230px;
+  height: 100%;
+  padding: 3rem 2rem;
+  background-color: $head;
+  a {
+    display: block;
+    margin-bottom: 4rem;
+    color: $gray;
+    transition: 0.3s;
+    i {
+      width: 40px;
+      color: $gray;
+    }
+    &.active {
+      border: 1px solid $des;
+      border-radius: 5px;
+      padding: 1.5rem 2rem;
+      color: $light;
+      i {
+        color: $champagne;
+      }
+    }
+  }
+}

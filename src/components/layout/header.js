@@ -81,12 +81,6 @@ function Header() {
               )}
             </ul>
           </div>
-          <div className="home-header__search">
-            <input type="text" placeholder={t("header.search")} />
-            <button type="submit">
-              <i className="fas fa-search"></i>
-            </button>
-          </div>
         </div>
       </div>
     </header>

@@ -66,3 +66,52 @@ export const checkLogin = async (user) => {
       `?email=${user.email}&password=${user.password}`
   ).then((res) => res.json());
 };
+
+// Define slider button
+export const clickSlider = (isSlider, value) => {
+  const slider =
+    isSlider === "hot"
+      ? document.querySelector("#slider_hot")
+      : isSlider === "top"
+      ? document.querySelector("#slider_top")
+      : null;
+  const slide = [...slider.querySelectorAll(".slide")];
+  const activedSlide = slide.findIndex((el) => el.classList.contains("active"));
+  if (value === "left" && activedSlide === 0) return null;
+  if (value === "right" && activedSlide >= 2) return null;
+  if (value === "right") {
+    slider.style.transform = `translateX(${(-(activedSlide + 1) * 100) / 6}%)`;
+    slide[activedSlide].classList.remove("active");
+    slide[activedSlide + 1].classList.add("active");
+  }
+  if (value === "left") {
+    slider.style.transform = `translateX(${(-(activedSlide - 1) * 100) / 6}%)`;
+    slide[activedSlide].classList.remove("active");
+    slide[activedSlide - 1].classList.add("active");
+  }
+};
+
+// add rating for product
+export const addRating = (userID, productItem, point, isRated) => {
+  const url = process.env.REACT_APP_SV_PRODUCTS + `/${productItem.id}`;
+  const data =
+    isRated === -1
+      ? {
+          ...productItem,
+          rating: [...productItem.rating, { userID: userID, point: point }],
+        }
+      : {
+          ...productItem,
+          rating: [
+            ...productItem.rating.filter((el, i) => i !== isRated),
+            { userID: userID, point: point },
+          ],
+        };
+  fetch(url, {
+    method: "PUT",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return window.location.reload();
+};

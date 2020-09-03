@@ -11,6 +11,8 @@ import orderListReducer from "./reducer/orderList";
 import allProductReducer from "./reducer/allProduct";
 import allOrderReducer from "./reducer/allOrder";
 import allUserReducer from "./reducer/allUser";
+import userInfoReducer from "./reducer/userInfo";
+import orderInfoReducer from "./reducer/orderInfo";
 
 export default configureStore({
   reducer: {
@@ -26,5 +28,7 @@ export default configureStore({
     allProduct: allProductReducer,
     allOrder: allOrderReducer,
     allUser: allUserReducer,
+    userInfo: userInfoReducer,
+    orderInfo: orderInfoReducer,
   },
 });

@@ -91,8 +91,27 @@ export const clickSlider = (isSlider, value) => {
   }
 };
 
-// Calculate rating
-// export const calcRating = (rating) => {
-//   const total = rating.reduce((total, el) => (total += el.point), 0);
-//   return rating.length === 0 ? 0 : total / rating.length;
-// };
+// add rating for product
+export const addRating = (userID, productItem, point, isRated) => {
+  const url = process.env.REACT_APP_SV_PRODUCTS + `/${productItem.id}`;
+  const data =
+    isRated === -1
+      ? {
+          ...productItem,
+          rating: [...productItem.rating, { userID: userID, point: point }],
+        }
+      : {
+          ...productItem,
+          rating: [
+            ...productItem.rating.filter((el, i) => i !== isRated),
+            { userID: userID, point: point },
+          ],
+        };
+  fetch(url, {
+    method: "PUT",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return window.location.reload();
+};

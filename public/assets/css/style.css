@@ -93,6 +93,9 @@ aside {
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
+.section__center--header span {
+  color: #e6ae48;
+}
 .section__arrow--title {
   text-align: left;
   margin-bottom: 3.5rem;
@@ -106,6 +109,9 @@ aside {
   font-size: 2.1rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
+}
+.section__arrow--header span {
+  color: #e6ae48;
 }
 
 .btn {
@@ -2921,6 +2927,17 @@ aside {
   margin-right: 5px;
 }
 
+.pdDetail-cmt {
+  padding: 20px 0;
+  border-top: 1px solid #c1c1c1;
+}
+.pdDetail-cmt h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.pdDetail-cmt__inner {
+  text-align: center;
+}
 .pdDetail-detail {
   padding-bottom: 5rem;
 }
@@ -3206,6 +3223,7 @@ aside {
 .pdDetail-detail__des {
   color: #818181;
   max-width: 80%;
+  margin-bottom: 10px;
 }
 @media (max-width: 992px) {
   .pdDetail-detail__des {

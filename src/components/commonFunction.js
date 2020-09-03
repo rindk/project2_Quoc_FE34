@@ -148,4 +148,3 @@ export const addToCart = async (id, qty) => {
 };
 
 // Handle Cart (Delete 1 or all products)
-

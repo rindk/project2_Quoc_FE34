@@ -13,13 +13,13 @@ export const productsCart = createSlice({
 });
 export const { getProductsCart } = productsCart.actions;
 
-export const fetchProductsCart = (token) => async (dispatch) => {
+export const fetchProductsCart = (token) => (dispatch) => {
   const cart = token === null ? [] : token[0].cart;
   const params =
     cart.length === 0
       ? "id=null"
       : cart.reduce((final, el) => (final += `&id=${el.productID}`), "");
-  await fetch(process.env.REACT_APP_SV_PRODUCTS + `?${params}`)
+  fetch(process.env.REACT_APP_SV_PRODUCTS + `?${params}`)
     .then((res) => res.json())
     .then((data) => {
       data.forEach(

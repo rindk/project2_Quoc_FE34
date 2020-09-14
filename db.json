@@ -416,13 +416,13 @@
     },
     {
       "id": 28,
-      "name": "demo",
+      "name": "Rượu trắng",
       "info": "Studio takes this name because an ancient legend recounts that a temple dedicated to Hercules was erected on our soil. This context and the legendary references are just a few of the elements that give a peculiar energy to Studio wines.",
-      "price": "30",
-      "color": "Red Wine",
-      "type": "Zinfandel",
+      "price": "12",
+      "color": "White Wine",
+      "type": "Riesling",
       "img": "/assets/products/27.jpg",
-      "status": "sale",
+      "status": "",
       "rating": [],
       "avgRating": 3
     }
@@ -431,7 +431,7 @@
     {
       "id": 1,
       "email": "admin@gmail.com",
-      "password": "admin",
+      "password": "$2a$10$ro5Gu/eoKeVCyEKjhxbEUehq9ckMi5VfA.MxK4FBk1n0vYVRtdPO2",
       "type": "admin"
     },
     {
@@ -440,9 +440,9 @@
       "firstName": "khanh",
       "lastName": "huynh",
       "email": "khanhhuynh@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "64 Tran Phu",
-      "city": "Hue",
+      "city": "Thua Thien Hue",
       "phone": "0924840964",
       "cart": [],
       "viewed": [
@@ -460,7 +460,7 @@
       "firstName": "hai",
       "lastName": "phan",
       "email": "haiphan@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "20 Tran Quoc Toan",
       "city": "Ho Chi Minh",
       "phone": "0946537220",
@@ -480,10 +480,10 @@
       "firstName": "son",
       "lastName": "tran",
       "email": "sontran@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "53 Vo Van Kiet",
       "city": "Hai Phong",
-      "phone": "0966001553",
+      "phone": "0966001550",
       "cart": [
         {
           "productID": 6,
@@ -509,7 +509,7 @@
       "firstName": "tien",
       "lastName": "phan",
       "email": "tienphan@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "93 Tran Phu",
       "city": "Ho Chi Minh",
       "phone": "0917345393",
@@ -529,7 +529,7 @@
       "firstName": "nhat",
       "lastName": "ly",
       "email": "nhatly@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "19 Tran Phu",
       "city": "Phan Thiet",
       "phone": "0905536519",
@@ -549,7 +549,7 @@
       "firstName": "nhat",
       "lastName": "nguyen",
       "email": "nhatnguyen@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "09 Nguyen Hue",
       "city": "Quang Ngai",
       "phone": "0945166509",
@@ -582,7 +582,7 @@
       "firstName": "tai",
       "lastName": "huynh",
       "email": "taihuynh@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "22 Tran Hung Dao",
       "city": "Quang Nam",
       "phone": "0908353622",
@@ -602,7 +602,7 @@
       "firstName": "lam",
       "lastName": "pham",
       "email": "lampham@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "60 Pham Van Dong",
       "city": "Ho Chi Minh",
       "phone": "0956468160",
@@ -622,7 +622,7 @@
       "firstName": "duong",
       "lastName": "phan",
       "email": "duongphan@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "33 Pham Van Dong",
       "city": "Hue",
       "phone": "0997904233",
@@ -642,7 +642,7 @@
       "firstName": "hang",
       "lastName": "pham",
       "email": "hangpham@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "61 Le Duan",
       "city": "Hai Phong",
       "phone": "0900519961",
@@ -660,13 +660,18 @@
       "id": 12,
       "type": "user",
       "firstName": "Tai",
-      "lastName": "nguyen",
+      "lastName": "Nguyenn",
       "email": "tainguyen@gmail.com",
-      "password": "123456",
+      "password": "$2a$10$X7AWM9NahNKlglogBDKZVe2X2vLDmUQUshXYJ18F5iVBH1O2LV.Ta",
       "address": "61 Vo Van Kiet",
       "city": "Nha Trang",
       "phone": "0993341561",
-      "cart": [],
+      "cart": [
+        {
+          "productID": 2,
+          "qty": 1
+        }
+      ],
       "viewed": [
         10,
         21,
@@ -1521,6 +1526,373 @@
       "orderDate": "10:16:14, 11/6/2020",
       "status": "canceled",
       "id": 36
+    },
+    {
+      "userID": 12,
+      "name": "Tai",
+      "phone": "0993341561",
+      "address": "61 Vo Van Kiet",
+      "city": "Nha Trang",
+      "cart": [
+        {
+          "productID": 3,
+          "qty": 1
+        },
+        {
+          "productID": 5,
+          "qty": 1
+        },
+        {
+          "productID": 4,
+          "qty": 2
+        },
+        {
+          "productID": 6,
+          "qty": 1
+        }
+      ],
+      "total": 231,
+      "orderDate": "10:50:21, 8/9/2020",
+      "status": "shipped",
+      "id": 37
+    },
+    {
+      "userID": 11,
+      "name": "hang",
+      "phone": "0900519961",
+      "address": "61 Le Duan",
+      "city": "Hai Phong",
+      "cart": [
+        {
+          "productID": 2,
+          "qty": 1
+        },
+        {
+          "productID": 3,
+          "qty": 1
+        },
+        {
+          "productID": 5,
+          "qty": 1
+        }
+      ],
+      "total": 143,
+      "orderDate": "11:24:24, 14/9/2020",
+      "status": "ordered",
+      "id": 38
+    },
+    {
+      "userID": 12,
+      "name": "Tai",
+      "phone": "0993341561",
+      "address": "61 Vo Van Kiet",
+      "city": "Nha Trang",
+      "cart": [
+        {
+          "productID": 1,
+          "qty": 1
+        }
+      ],
+      "total": 49,
+      "orderDate": "20:45:58, 15/9/2020",
+      "status": "ordered",
+      "id": 39
+    },
+    {
+      "userID": 12,
+      "name": "Tai",
+      "phone": "0993341561",
+      "address": "61 Vo Van Kiet",
+      "city": "Nha Trang",
+      "cart": [
+        {
+          "productID": 3,
+          "qty": 1
+        },
+        {
+          "productID": 2,
+          "qty": 1
+        }
+      ],
+      "total": 90,
+      "orderDate": "22:13:27, 15/9/2020",
+      "status": "ordered",
+      "id": 40
+    },
+    {
+      "userID": 12,
+      "name": "Tai",
+      "phone": "0993341561",
+      "address": "61 Vo Van Kiet",
+      "city": "Nha Trang",
+      "cart": [
+        {
+          "productID": 2,
+          "qty": 1
+        },
+        {
+          "productID": 1,
+          "qty": 1
+        },
+        {
+          "productID": 3,
+          "qty": 1
+        }
+      ],
+      "total": 139,
+      "orderDate": "14:13:03, 16/9/2020",
+      "status": "ordered",
+      "id": 41
+    }
+  ],
+  "profile": [
+    {
+      "id": 1,
+      "userId": 1,
+      "email": "admin@gmail.com",
+      "type": "admin"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "type": "user",
+      "email": "khanhhuynh@gmail.com",
+      "firstName": "Khanh",
+      "lastName": "Huynh",
+      "address": "64 Tran Phu",
+      "city": "Thua Thien Hue",
+      "phone": "0924840964",
+      "cart": [],
+      "viewed": [
+        9,
+        23,
+        22,
+        6,
+        20,
+        10
+      ]
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "type": "user",
+      "email": "haiphan@gmail.com",
+      "firstName": "hai",
+      "lastName": "phan",
+      "address": "20 Tran Quoc Toan",
+      "city": "Ho Chi Minh",
+      "phone": "0946537220",
+      "cart": [],
+      "viewed": [
+        18,
+        14,
+        1,
+        4,
+        16,
+        7
+      ]
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "type": "user",
+      "email": "sontran@gmail.com",
+      "firstName": "son",
+      "lastName": "tran",
+      "address": "53 Vo Van Kiet",
+      "city": "Hai Phong",
+      "phone": "0966001550",
+      "cart": [
+        {
+          "productID": 6,
+          "qty": 1
+        },
+        {
+          "productID": 9,
+          "qty": 2
+        }
+      ],
+      "viewed": [
+        21,
+        2,
+        15,
+        13,
+        7,
+        19
+      ]
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "type": "user",
+      "email": "tienphan@gmail.com",
+      "firstName": "tien",
+      "lastName": "phan",
+      "address": "93 Tran Phu",
+      "city": "Ho Chi Minh",
+      "phone": "0917345393",
+      "cart": [],
+      "viewed": [
+        5,
+        25,
+        19,
+        22,
+        11,
+        1
+      ]
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "type": "user",
+      "email": "nhatly@gmail.com",
+      "firstName": "nhat",
+      "lastName": "ly",
+      "address": "19 Tran Phu",
+      "city": "Phan Thiet",
+      "phone": "0905536519",
+      "cart": [],
+      "viewed": [
+        3,
+        14,
+        13,
+        17,
+        8,
+        6
+      ]
+    },
+    {
+      "id": 7,
+      "userId": 7,
+      "type": "user",
+      "email": "nhatnguyen@gmail.com",
+      "firstName": "nhat",
+      "lastName": "nguyen",
+      "address": "09 Nguyen Hue",
+      "city": "Quang Ngai",
+      "phone": "0945166509",
+      "cart": [
+        {
+          "productID": 20,
+          "qty": 1
+        },
+        {
+          "productID": 11,
+          "qty": 1
+        },
+        {
+          "productID": 16,
+          "qty": 1
+        }
+      ],
+      "viewed": [
+        2,
+        20,
+        4,
+        8,
+        18,
+        24
+      ]
+    },
+    {
+      "id": 8,
+      "userId": 8,
+      "type": "user",
+      "email": "taihuynh@gmail.com",
+      "firstName": "tai",
+      "lastName": "huynh",
+      "address": "22 Tran Hung Dao",
+      "city": "Quang Nam",
+      "phone": "0908353622",
+      "cart": [],
+      "viewed": [
+        11,
+        25,
+        13,
+        24,
+        2,
+        17
+      ]
+    },
+    {
+      "id": 9,
+      "userId": 9,
+      "type": "user",
+      "email": "lampham@gmail.com",
+      "firstName": "lam",
+      "lastName": "pham",
+      "address": "60 Pham Van Dong",
+      "city": "Ho Chi Minh",
+      "phone": "0956468160",
+      "cart": [],
+      "viewed": [
+        15,
+        19,
+        25,
+        19,
+        6,
+        27
+      ]
+    },
+    {
+      "id": 10,
+      "userId": 10,
+      "type": "user",
+      "email": "duongphan@gmail.com",
+      "firstName": "duong",
+      "lastName": "phan",
+      "address": "33 Pham Van Dong",
+      "city": "Hue",
+      "phone": "0997904233",
+      "cart": [],
+      "viewed": [
+        6,
+        5,
+        16,
+        2,
+        12,
+        20
+      ]
+    },
+    {
+      "id": 11,
+      "userId": 11,
+      "type": "user",
+      "email": "hangpham@gmail.com",
+      "firstName": "hang",
+      "lastName": "pham",
+      "address": "61 Le Duan",
+      "city": "Hai Phong",
+      "phone": "0900519961",
+      "cart": [],
+      "viewed": [
+        16,
+        24,
+        22,
+        19,
+        9,
+        3
+      ]
+    },
+    {
+      "id": 12,
+      "userId": 12,
+      "type": "user",
+      "email": "tainguyen@gmail.com",
+      "firstName": "TAI",
+      "lastName": "Nguyenn",
+      "address": "61 Vo Van Kiet",
+      "city": "Nha Trang",
+      "phone": "0993341561",
+      "cart": [],
+      "viewed": [
+        10,
+        21,
+        18,
+        5,
+        25,
+        15
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 import store from "../redux/store";
 import { updateToken } from "../redux/reducer/token";
-import {checkLoginStt} from "../redux/reducer/loginStatus"
+import { checkLoginStt } from "../redux/reducer/loginStatus";
 
 // Open/Close Modal
 export const openModal = () => {
@@ -60,11 +60,13 @@ export const signupNewAcc = async (user) => {
 };
 
 // Check user login
-export const checkLogin = async (user) => {
-  return await fetch(
-    process.env.REACT_APP_SV_USERS +
-      `?email=${user.email}&password=${user.password}`
-  ).then((res) => res.json());
+export const checkLogin = (user) => {
+  return fetch(process.env.REACT_APP_SV_LOGIN, {
+    method: "POST",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: user.email, password: user.passwrod }),
+  });
 };
 
 // Define slider button
@@ -134,7 +136,7 @@ export const addToCart = async (id, qty) => {
           ...cart.filter((el) => el.productID !== id),
           { productID: id, qty: cart[checkProduct].qty + qty },
         ];
-  const url = process.env.REACT_APP_SV_USERS + `/${token[0].id}`;
+  const url = process.env.REACT_APP_SV_PROFILE + `/${token[0].id}`;
   const data = { ...token[0], cart: newCart };
   return await fetch(url, {
     method: "PUT",
@@ -146,7 +148,7 @@ export const addToCart = async (id, qty) => {
 
 // Sign out
 export const signout = () => {
-  localStorage.removeItem("token");
+  localStorage.clear();
   store.dispatch(updateToken(null));
   store.dispatch(checkLoginStt());
   return (window.location.href = "/");

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { closeModal, checkLogin } from "../commonFunction";
+import { closeModal } from "../commonFunction";
 import { checkLoginStt } from "../../redux/reducer/loginStatus";
 import { updateToken } from "../../redux/reducer/token";
 
 function Login() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-
+  const [loginMess, setLoginMess] = useState("");
   // Close Modal after render
   useEffect(() => closeModal(), []);
 
@@ -26,23 +26,43 @@ function Login() {
   // Log in Submit
   const loginSubmit = (e) => {
     e.preventDefault();
-    const isValid = checkLogin(user);
-    isValid.then((data) =>
-      data.length === 1
-        ? loginSuccessed(data)
-        : alert("Tài khoản không đúng. Vui lòng đăng nhập lại")
-    );
+    fetch(process.env.REACT_APP_SV_LOGIN, {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: user.email,
+        password: user.password,
+      }),
+    })
+      .then((res) => ({ message: res.json(), status: res.status }))
+      .then((data) => {
+        if (data.status === 400)
+          return data.message.then((message) => {
+            setLoginMess(message);
+            setTimeout(() => setLoginMess(""), 5000);
+          });
+        if (data.status === 200) return loginSuccessed(data.message);
+      });
   };
 
-  const loginSuccessed = (token) => {
-    alert("Bạn đã đăng nhập thành công!");
-    dispatch(updateToken(token));
-    dispatch(checkLoginStt());
-    return (window.location.href = "/");
+  const loginSuccessed = (data) => {
+    data.then((token) =>
+      localStorage.setItem("accessToken", JSON.stringify(token))
+    );
+    fetch(process.env.REACT_APP_SV_PROFILE + `?email=${user.email}`)
+      .then((res) => res.json())
+      .then((token) => {
+        dispatch(updateToken(token));
+        dispatch(checkLoginStt());
+      });
+    document.querySelector(".login__success").classList.add("active");
+    return setTimeout(() => (window.location.href = "/"), 2000);
   };
 
   return (
     <main className="login-main">
+      <LoginSuccessPopup />
       <div className="breadcrumb">
         <div className="container breadcrumb__inner">
           <Link to="/">{t("menu.home")}</Link>
@@ -69,6 +89,21 @@ function Login() {
           <div className="login__bot">
             <h3>{t("main.login.header")}</h3>
             <p>{t("main.login.desc")}</p>
+            <div style={{ position: "relative" }}>
+              {loginMess === "" ? null : (
+                <p
+                  style={{
+                    color: "red",
+                    margin: "10px 0",
+                    position: "absolute",
+                    top: "-45px",
+                    left: "0",
+                  }}
+                >
+                  * {loginMess}
+                </p>
+              )}
+            </div>
             <form className="login__form" onSubmit={loginSubmit} method="post">
               <div className="login__form-row">
                 <label htmlFor="login-email">Email *</label>
@@ -103,6 +138,17 @@ function Login() {
         </div>
       </section>
     </main>
+  );
+}
+
+function LoginSuccessPopup() {
+  return (
+    <div className="login__success">
+      <div>
+        <i className="fas fa-check"></i>
+      </div>
+      <p>Bạn đã đăng nhập thành công</p>
+    </div>
   );
 }
 

@@ -1,0 +1,102 @@
+.ad-user {
+  &__table {
+    background: #fff;
+    border: 1px solid $des;
+    border-bottom: none;
+  }
+  &__row {
+    @include d-grid(80px 2.5fr 80px 2.5fr 1.6fr 2fr 1.5fr 100px);
+    &.title {
+      font-size: 1.8rem;
+      background: rgba(44, 44, 44, 0.842);
+      p {
+        padding: 2rem;
+        color: rgb(224, 224, 224);
+      }
+    }
+    p {
+      text-align: center;
+      padding: 1rem;
+      border-right: 1px solid $des;
+      border-bottom: 1px solid $des;
+      &:last-child {
+        border-right: none;
+      }
+    }
+    p.name {
+      @include d-flex(space-between);
+    }
+    button.delete {
+      cursor: pointer;
+      color: red;
+      transition: 0.3s;
+      &:hover {
+        font-weight: bold;
+        transform: scale(1.4);
+      }
+    }
+    button.edit {
+      cursor: pointer;
+      color: rgb(76, 76, 233);
+      text-decoration: underline;
+      transition: 0.3s;
+      &:hover {
+        color: $champagne;
+      }
+    }
+  }
+  &__modal {
+    background: rgba(107, 107, 107, 0.5);
+    position: absolute;
+    z-index: 9999;
+    top: -100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &-inner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $light;
+    }
+    &-content {
+      @include d-grid(1fr 1fr);
+      grid-column-gap: 2rem;
+      padding: 2rem;
+      img {
+        max-height: 400px;
+        margin: auto;
+      }
+    }
+    &-detail {
+      label {
+        @include d-flex(space-between);
+        padding: 1rem 0;
+      }
+      input {
+        border: 1px solid $des;
+        padding: 8px 12px;
+        width: 200px;
+      }
+      select {
+        width: 120px;
+      }
+      p {
+        padding: 1rem 0;
+      }
+      textarea {
+        width: 400px;
+        padding: 1rem;
+        resize: vertical;
+      }
+    }
+    &-btn {
+      margin: 2rem 0;
+      text-align: center;
+      button {
+        margin: 0 1rem;
+      }
+    }
+  }
+}

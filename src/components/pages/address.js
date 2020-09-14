@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,12 @@ function Address() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token.value);
   const loginStatus = useSelector((state) => state.loginStatus.value);
-  const [profile, setProfile] = useState([...token]);
+  const [profile, setProfile] = useState([]);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (token !== null) return setProfile([...token]);
+  }, [token]);
 
   // Handle onChange input
   const onChangeInput = (e) => {
@@ -47,22 +52,36 @@ function Address() {
     e.target.classList.add("hide");
 
     const btn1 = document.querySelector(".btn1");
-    const btn3 = document.querySelector(".btn2");
+    const btn3 = document.querySelector(".btn3");
     btn1.classList.remove("hide");
     btn3.classList.add("hide");
 
     dispatch(updateToken(profile));
-    const url = process.env.REACT_APP_SV_USERS + `/${profile[0].id}`;
+    const url = process.env.REACT_APP_SV_PROFILE + `/${profile[0].id}`;
     return fetch(url, {
       method: "PUT",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(profile[0]),
+    }).then((res) => {
+      if (res.status === 200) {
+        setMessage("Bạn đã cập nhật thành công");
+        return setTimeout(() => setMessage(""), 1500);
+      }
     });
   };
 
   return (
     <main className="address-main">
+      {message !== "" ? (
+        <div className="address__popup">
+          <div>
+            <i className="fas fa-check"></i>
+          </div>
+
+          {message}
+        </div>
+      ) : null}
       <div className="breadcrumb">
         <div className="container breadcrumb__inner">
           <Link to="/">{t("menu.home")}</Link>

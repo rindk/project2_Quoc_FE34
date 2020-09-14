@@ -18,6 +18,7 @@ function ProductDetail() {
   const loginStatus = useSelector((state) => state.loginStatus.value);
   const token = useSelector((state) => state.token.value);
   const productsList = useSelector((state) => state.productsList.value);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     dispatch(fetchProductItem(productID));
@@ -59,11 +60,22 @@ function ProductDetail() {
   // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("product ID: ", productID, " - qty: ", qty);
+    console.log(typeof Number(productID));
+    addToCart(Number(productID), qty);
+    setMessage(`Bạn đã thêm ${productItem.name} vào giỏ hàng`);
+    setTimeout(() => setMessage(""), 1500);
   };
 
   return (
     <main className="pdDetail-main">
+      {message !== "" ? (
+        <div className="products__popup">
+          <div>
+            <i className="fas fa-check"></i>
+          </div>
+          {message}
+        </div>
+      ) : null}
       <div className="breadcrumb">
         <div className="container breadcrumb__inner">
           <Link to="/">{t("menu.home")}</Link>

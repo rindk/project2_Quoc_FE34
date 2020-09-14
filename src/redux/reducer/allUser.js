@@ -14,7 +14,7 @@ export const allUser = createSlice({
 export const { setAllUser } = allUser.actions;
 
 export const fetchAllUser = () => async (dispatch) => {
-  await fetch(process.env.REACT_APP_SV_USERS)
+  await fetch(process.env.REACT_APP_SV_PROFILE)
     .then((res) => res.json())
     .then((data) => dispatch(setAllUser(data)));
 };

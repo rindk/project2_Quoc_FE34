@@ -12,12 +12,18 @@ function Checkout() {
   const productsCart = useSelector((state) => state.productsCart.value);
   const loginStatus = useSelector((state) => state.loginStatus.value);
   const [total, setTotal] = useState(0);
+  const [message, setMessage] = useState("");
 
   // loading products in cart
   useEffect(() => {
     dispatch(fetchProductsCart(token));
   }, [dispatch, token]);
-
+  // Show/Hide message
+  useEffect(() => {
+    message === ""
+      ? document.querySelector(".checkout__message").classList.remove("active")
+      : document.querySelector(".checkout__message").classList.add("active");
+  });
   // calculate total price
   useEffect(() => {
     setTotal(
@@ -30,10 +36,14 @@ function Checkout() {
 
   //handle Checkout
   const checkout = () => {
-    if (token[0].cart.length === 0) return alert("Bạn không có sản phẩm nào");
-    alert("Bạn đã thanh toán thành công");
+    if (token[0].cart.length === 0) {
+      setMessage("Bạn không có sản phẩm nào");
+      return setTimeout(() => setMessage(""), 1500);
+    }
+    setMessage("Bạn đã thanh toán thành công");
+    setTimeout(() => setMessage(""), 1500);
     // update token and user data
-    const url1 = process.env.REACT_APP_SV_USERS + `/${token[0].id}`;
+    const url1 = process.env.REACT_APP_SV_PROFILE + `/${token[0].id}`;
     const data1 = { ...token[0], cart: [] };
     dispatch(updateToken([data1]));
     fetch(url1, {
@@ -65,6 +75,14 @@ function Checkout() {
   };
   return (
     <main className="checkout-main">
+      <div className="checkout__message">
+        {message === "Bạn đã thanh toán thành công" ? (
+          <div>
+            <i className="fas fa-check"></i>
+          </div>
+        ) : null}
+        {message}
+      </div>
       <div className="breadcrumb">
         <div className="container breadcrumb__inner">
           <Link to="/">{t("menu.home")}</Link>

@@ -19,7 +19,7 @@
   },
   "scripts": {
     "sass": "sass --watch src/css/style.scss:public/assets/css/style.css",
-    "api": "json-server db.json --watch -p 3000",
+    "api": "json-server db.json -m ./node_modules/json-server-auth --watch -p 3000",
     "start": "set port=4000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^0.16.1",
+    "json-server-auth": "^2.0.2"
   }
 }

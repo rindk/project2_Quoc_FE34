@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import {
-  closeModal,
-  validateUser,
-  availableEmail,
-  signupNewAcc,
-} from "../commonFunction";
+import { closeModal, validateUser } from "../commonFunction";
 
 function Signup() {
   const { t } = useTranslation();
+  const [signupMess, setSignupMess] = useState("");
 
   // Close Modal after render
   useEffect(() => closeModal(), []);
@@ -33,17 +29,42 @@ function Signup() {
       user.password === user.passwordCf
         ? validateUser(user)
         : "Mật khẩu không trùng nhau";
-    if (isValid !== "ok") return alert(isValid);
-    if (isValid === "ok") {
-      const isAvailableEmail = availableEmail(user.email);
-      isAvailableEmail.then((data) => {
-        data
-          ? signupNewAcc(user)
-          : alert("Email đã bị trùng, vui lòng nhập email khác");
-      });
-    }
+    if (isValid !== "ok") return setSignupMess(isValid);
+    if (isValid === "ok") signUpNew();
   };
-
+  const signUpNew = () => {
+    const data = {
+      type: "user",
+      firstName: user.fname,
+      lastName: user.lname,
+      email: user.email,
+      password: user.password,
+      address: "",
+      city: "",
+      phone: "",
+      cart: [],
+      view: [],
+    };
+    fetch(process.env.REACT_APP_SV_USERS, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((message) =>
+        typeof message === "string"
+          ? setSignupMess(message)
+          : setSignupMess("Bạn đã đăng ký thành công")
+      );
+  };
+  useEffect(() => {
+    if (signupMess === "Bạn đã đăng ký thành công")
+      setTimeout(() => (window.location.href = "/login"), 1000);
+  }, [signupMess]);
+  
   return (
     <main className="register-main">
       <div className="breadcrumb">
@@ -75,6 +96,11 @@ function Signup() {
             method="post"
           >
             <h3>{t("main.signup.info")}</h3>
+            {signupMess === "" ? null : (
+              <p style={{ color: "red", marginBottom: "30px" }}>
+                * {signupMess}
+              </p>
+            )}
             <div className="register__form-row">
               <label htmlFor="register-fname">{t("main.signup.fname")}</label>
               <input

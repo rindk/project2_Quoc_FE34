@@ -4223,4 +4223,94 @@ aside {
   margin: 0 1rem;
 }
 
+.checkout__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-content: stretch;
+  grid-column-gap: 5rem;
+}
+.checkout__address--header {
+  margin-bottom: 2rem;
+}
+.checkout__address--inner {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-content: stretch;
+  grid-column-gap: 2rem;
+  border: 1px solid #c1c1c1;
+  padding-left: 2rem;
+}
+.checkout__address--inner h4,
+.checkout__address--inner p {
+  padding: 1.5rem 0;
+}
+.checkout__address .btn {
+  margin-top: 2rem;
+}
+.checkout__cart--header {
+  margin-bottom: 2rem;
+}
+.checkout__cart--inner {
+  border: 1px solid #c1c1c1;
+  padding: 0 2rem;
+}
+.checkout__cart--row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-content: stretch;
+  border-bottom: 1px solid #9c0001;
+}
+.checkout__cart--row h4 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 1.5rem 0;
+  margin: auto;
+}
+.checkout__cart--row h4:first-child {
+  margin: 0;
+}
+.checkout__cart--row h5,
+.checkout__cart--row span,
+.checkout__cart--row p {
+  padding: 1rem 0;
+}
+.checkout__cart--row span,
+.checkout__cart--row p {
+  margin: auto;
+}
+.checkout__cart--row p.price, .checkout__cart--row p.home-hotdeal__price {
+  font-size: 1.8rem;
+}
+.checkout__cart--row p.price span, .checkout__cart--row p.home-hotdeal__price span {
+  font-size: 1.2rem;
+}
+.checkout__cart--total {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.checkout__cart--total h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.checkout__cart--total p.price, .checkout__cart--total p.home-hotdeal__price {
+  font-size: 2rem;
+}
+.checkout__cart--total p.price span, .checkout__cart--total p.home-hotdeal__price span {
+  font-size: 1.4rem;
+}
+.checkout__cart .btn {
+  margin-top: 2rem;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -6,6 +6,7 @@ import { fetchProductItem } from "../../redux/reducer/productItem";
 import { fetchProductsList } from "../../redux/reducer/productsList";
 import { openModal, addRating, clickSlider } from "../commonFunction";
 import ProductsList from "./productsList";
+import { addToCart } from "../commonFunction";
 
 function ProductDetail() {
   const url = "";
@@ -185,11 +186,12 @@ function ProductDetail() {
                     onClick={handleQty}
                   />
                 </div>
-                <input
+                <button
                   className="btn"
-                  type="submit"
-                  value={t("button.addToCart")}
-                />
+                  onClick={() => addToCart(productID, qty)}
+                >
+                  {t("button.addToCart")}
+                </button>
               </div>
             </form>
             <div className="pdDetail-detail__fav">

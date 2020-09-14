@@ -1,12 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/reducer/cartStorage";
+import { addToCart } from "../commonFunction";
 
 function ProductsList({ product, hasTag, slide, active }) {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
 
   return (
     <aside className={`home-new__items ${slide} ${active}`}>
@@ -45,7 +43,7 @@ function ProductsList({ product, hasTag, slide, active }) {
           <span>$</span>
         </p>
         <div className="home-new__btn">
-          <button className="btn" onClick={(id) => dispatch(addToCart(id))}>
+          <button className="btn" onClick={() => addToCart(Number(product.id), 1)}>
             {t("button.addToCart")}
           </button>
         </div>

@@ -1,3 +1,6 @@
+import store from "../redux/store";
+import { updateToken } from "../redux/reducer/token";
+
 // Open/Close Modal
 export const openModal = () => {
   document.querySelector(".modal").classList.add("active");
@@ -57,10 +60,6 @@ export const signupNewAcc = async (user) => {
 
 // Check user login
 export const checkLogin = async (user) => {
-  console.log(
-    process.env.REACT_APP_SV_USERS +
-      `?email=${user.email}&password=${user.password}`
-  );
   return await fetch(
     process.env.REACT_APP_SV_USERS +
       `?email=${user.email}&password=${user.password}`
@@ -115,3 +114,37 @@ export const addRating = (userID, productItem, point, isRated) => {
   });
   return window.location.reload();
 };
+
+// add to cart for user
+export const addToCart = async (id, qty) => {
+  const state = store.getState();
+  const token = state.token.value;
+  const loginStatus = state.loginStatus.value;
+
+  if (!loginStatus) return openModal();
+  const cart = token[0].cart;
+  const checkProduct = cart.findIndex((el) => el.productID === id);
+  const newCart =
+    cart.length === 0
+      ? [{ productID: id, qty: qty }]
+      : checkProduct === -1
+      ? [...cart, { productID: id, qty: qty }]
+      : [
+          ...cart.filter((el) => el.productID !== id),
+          { productID: id, qty: cart[checkProduct].qty + qty },
+        ];
+  const url = process.env.REACT_APP_SV_USERS + `/${token[0].id}`;
+  const data = { ...token[0], cart: newCart };
+  console.log(cart);
+  console.log(id);
+  console.log(checkProduct);
+  console.log(newCart);
+  return await fetch(url, {
+    method: "PUT",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then((res) => store.dispatch(updateToken([data])));
+};
+
+// Handle Cart (Delete 1 or all products)

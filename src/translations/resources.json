@@ -15,7 +15,9 @@
         "intro": "GIỚI THIỆU",
         "products": "SẢN PHẨM",
         "contact": "LIÊN HỆ",
-        "address": "ĐỊA CHỈ"
+        "address": "ĐỊA CHỈ",
+        "checkout": "THANH TOÁN",
+        "cart": "GIỎ HÀNG"
       },
       "footer": {
         "info": {
@@ -70,7 +72,8 @@
         "order": "ĐƠN HÀNG",
         "viewed": "SẢN PHẨM BẠN VỪA XEM",
         "products": "DANH MỤC SẢN PHẨM",
-        "price": "GIÁ SẢN PHẨM"
+        "price": "GIÁ SẢN PHẨM",
+        "checkout": "XÁC NHẬN THANH TOÁN"
       },
       "main": {
         "home": {
@@ -107,7 +110,8 @@
           "price": "GIÁ",
           "qty": "SỐ LƯỢNG",
           "total": "TỔNG SỐ",
-          "delete": "XÓA"
+          "delete": "XÓA",
+          "header": "GIỎ HÀNG CỦA BẠN"
         },
         "intro": {
           "header": "CHÀO MỪNG ĐẾN VỚI WINE HOURSE",
@@ -141,7 +145,8 @@
         "login": "ĐĂNG NHẬP",
         "signup": "ĐĂNG KÝ",
         "checkout": "THANH TOÁN",
-        "back": "QUAY LẠI"
+        "back": "QUAY LẠI",
+        "order": "ĐẶT HÀNG"
       },
       "products": {
         "fav": "Yêu thích",

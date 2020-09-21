@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchProductsCart,
-  getProductsCart,
-} from "../../redux/reducer/productsCart";
+import { fetchProductsCart } from "../../redux/reducer/productsCart";
 import { updateToken } from "../../redux/reducer/token";
 
 function Cart() {
@@ -13,17 +11,26 @@ function Cart() {
   const dispatch = useDispatch();
   const productsCart = useSelector((state) => state.productsCart.value);
   const token = useSelector((state) => state.token.value);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     dispatch(fetchProductsCart(token));
   }, [dispatch, token]);
 
+  // calculate total price
+  useEffect(() => {
+    setTotal(
+      productsCart.reduce(
+        (total, product) => (total += product.qty * product.price),
+        0
+      )
+    );
+  }, [productsCart]);
+
   //delete all products
   const deleteAllProducts = () => {
     const url = process.env.REACT_APP_SV_USERS + `/${token[0].id}`;
     const data = { ...token[0], cart: [] };
-    
-    dispatch(getProductsCart([]));
     dispatch(updateToken([data]));
 
     return fetch(url, {
@@ -60,12 +67,7 @@ function Cart() {
               <div className="cart__total">
                 <h3>TỔNG TIỀN:</h3>
                 <p className="price">
-                  {productsCart.length === 0
-                    ? 0
-                    : productsCart.reduce(
-                        (total, el) => (total += el.qty * el.price),
-                        0
-                      )}
+                  {total}
                   <span>$</span>
                 </p>
                 <h4>Số loại sản phẩm</h4>

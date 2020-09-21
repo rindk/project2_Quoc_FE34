@@ -1,10 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateToken } from "../../redux/reducer/token";
 
 function Address() {
-  const url = "";
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.token.value);
+  const loginStatus = useSelector((state) => state.loginStatus.value);
+  const [profile, setProfile] = useState([...token]);
+
+  // Handle onChange input
+  const onChangeInput = (e) => {
+    const target = e.target;
+    setProfile([{ ...profile[0], [target.name]: target.value }]);
+  };
+  // Active modify profile
+  const handleModify = (e) => {
+    const info = document.querySelector(".address__wrapper");
+    info.classList.add("active");
+    e.target.classList.add("hide");
+
+    const btn2 = document.querySelector(".btn2");
+    const btn3 = document.querySelector(".btn3");
+    btn2.classList.remove("hide");
+    btn3.classList.remove("hide");
+  };
+  // Cancel modify profile
+  const handleCancel = (e) => {
+    const info = document.querySelector(".address__wrapper");
+    info.classList.remove("active");
+    e.target.classList.add("hide");
+
+    const btn1 = document.querySelector(".btn1");
+    const btn2 = document.querySelector(".btn2");
+    btn1.classList.remove("hide");
+    btn2.classList.add("hide");
+
+    setProfile([...token]);
+  };
+  // Update profile
+  const handleUpdate = (e) => {
+    const info = document.querySelector(".address__wrapper");
+    info.classList.remove("active");
+    e.target.classList.add("hide");
+
+    const btn1 = document.querySelector(".btn1");
+    const btn3 = document.querySelector(".btn2");
+    btn1.classList.remove("hide");
+    btn3.classList.add("hide");
+
+    dispatch(updateToken(profile));
+    const url = process.env.REACT_APP_SV_USERS + `/${profile[0].id}`;
+    return fetch(url, {
+      method: "PUT",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(profile[0]),
+    });
+  };
 
   return (
     <main className="address-main">
@@ -12,224 +67,110 @@ function Address() {
         <div className="container breadcrumb__inner">
           <Link to="/">{t("menu.home")}</Link>
           <span>/</span>
-          <p>{t("menu.address")}</p>
+          <p>{t("menu.profile")}</p>
         </div>
       </div>
-      <section className="address">
+      {!loginStatus ? (
         <div className="container">
-          <div className="section__arrow--title">
-            <h1 className="section__arrow--header">{t("title.address")}</h1>
-            <img
-              className="section__arrow--icon"
-              src="assets/images/decor/2.png"
-              alt="icon"
-            />
+          <div className="login">
+            Bạn chưa đăng nhập
+            <Link className="link" to="/login">
+              {t("header.login")}
+            </Link>
           </div>
-          <div className="address__head">
-            <p>{t("main.address.header")}</p>
-            <div>
-              <a href={url}>{t("main.address.newAdd")}</a>
+        </div>
+      ) : (
+        <section className="address">
+          <div className="container">
+            <div className="section__arrow--title">
+              <h1 className="section__arrow--header">{t("title.profile")}</h1>
+              <img
+                className="section__arrow--icon"
+                src="assets/images/decor/2.png"
+                alt="icon"
+              />
             </div>
-          </div>
-          <div className="address__wrapper">
-            <div className="address__added">
-              <div className="address__added--inner active">
-                <form
-                  className="address__form"
-                  id="address__form1"
-                  action="#"
-                  method="get"
-                >
-                  <label htmlFor="fname">
-                    <span>{t("main.address.fname")}</span>
-                    <input type="text" name="fname" value="Giang" />
-                  </label>
-                  <label htmlFor="lname">
-                    <span>{t("main.address.lname")}</span>
-                    <input type="text" name="lname" value="Lê Anh" />
-                  </label>
-                  <label htmlFor="add">
-                    <span>{t("main.address.address")}</span>
-                    <input
-                      type="text"
-                      name="address"
-                      value="Tòa nhà Hanoi Group, 442 Đội Cấn, Ba Đình, Hà Nội"
-                    />
-                  </label>
-                  <label htmlFor="city">
-                    <span>{t("main.address.city")}</span>
-                    <input type="text" name="city" value="Hà Nội" />
-                  </label>
-                  <label htmlFor="phone">
-                    <span>{t("main.address.phone")}</span>
-                    <input type="tel" name="phone" value="0974554928" />
-                  </label>
-                </form>
-                <div className="address__btn">
-                  <label htmlFor="check">
-                    <input
-                      type="checkbox"
-                      name="check"
-                      form="address__form1"
-                      defaultChecked
-                    />
-                    <span>{t("main.address.checkbox")}</span>
-                  </label>
-                  <div>
-                    <button
-                      className="btn address__btn--submit"
-                      type="submit"
-                      form="address__form1"
-                    >
-                      {t("main.address.modifyAdd")}
-                    </button>
-                    <button
-                      className="btn address__btn--del"
-                      type="submit"
-                      form="address__form1"
-                    >
-                      {t("button.delete")}
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="address__added--inner">
-                <form
-                  className="address__form"
-                  id="address__form2"
-                  action="#"
-                  method="get"
-                >
-                  <label htmlFor="fname">
-                    <span>{t("main.address.fname")}</span>
-                    <input type="text" name="fname" value="Giang" />
-                  </label>
-                  <label htmlFor="lname">
-                    <span>{t("main.address.lname")}</span>
-                    <input type="text" name="lname" value="Lê Anh" />
-                  </label>
-
-                  <label htmlFor="add">
-                    <span>{t("main.address.address")}</span>
-                    <input
-                      type="text"
-                      name="address"
-                      value="Tòa nhà Hanoi Group, 442 Đội Cấn, Ba Đình, Hà Nội"
-                    />
-                  </label>
-                  <label htmlFor="city">
-                    <span>{t("main.address.city")}</span>
-                    <input type="text" name="city" value="Hà Nội" />
-                  </label>
-                  <label htmlFor="phone">
-                    <span>{t("main.address.phone")}</span>
-                    <input type="tel" name="phone" value="0974554928" />
-                  </label>
-                </form>
-                <div className="address__added--modified">
-                  <a href={url}>{t("main.address.modifyAdd")}</a>
-                </div>
-              </div>
-              <div className="address__added--inner">
-                <form
-                  className="address__form"
-                  id="address__form3"
-                  action="#"
-                  method="get"
-                >
-                  <label htmlFor="fname">
-                    <span>{t("main.address.fname")}</span>
-                    <input type="text" name="fname" value="Giang" />
-                  </label>
-                  <label htmlFor="lname">
-                    <span>{t("main.address.lname")}</span>
-                    <input type="text" name="lname" value="Lê Anh" />
-                  </label>
-                  <label htmlFor="add">
-                    <span>{t("main.address.address")}</span>
-                    <input
-                      type="text"
-                      name="address"
-                      value="Tòa nhà Hanoi Group, 442 Đội Cấn, Ba Đình, Hà Nội"
-                    />
-                  </label>
-                  <label htmlFor="city">
-                    <span>{t("main.address.city")}</span>
-                    <input type="text" name="city" value="Hà Nội" />
-                  </label>
-                  <label htmlFor="phone">
-                    <span>{t("main.address.phone")}</span>
-                    <input type="tel" name="phone" value="0974554928" />
-                  </label>
-                </form>
-                <div className="address__added--modified">
-                  <a href={url}>{t("main.address.modifyAdd")}</a>
-                </div>
-              </div>
-            </div>
-            <div className="address__new active">
+            <div className="address__head">{t("main.address.header")}</div>
+            <div className="address__wrapper">
               <form
                 className="address__form"
-                id="address__form4"
+                id="address__form1"
                 action="#"
                 method="get"
               >
                 <label htmlFor="fname">
                   <span>{t("main.address.fname")}</span>
-                  <input type="text" name="fname" value="Giang" />
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={profile[0].firstName}
+                    onChange={onChangeInput}
+                  />
                 </label>
                 <label htmlFor="lname">
                   <span>{t("main.address.lname")}</span>
-                  <input type="text" name="lname" value="Lê Anh" />
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={profile[0].lastName}
+                    onChange={onChangeInput}
+                  />
                 </label>
                 <label htmlFor="add">
                   <span>{t("main.address.address")}</span>
                   <input
                     type="text"
                     name="address"
-                    value="Tòa nhà Hanoi Group, 442 Đội Cấn, Ba Đình, Hà Nội"
+                    value={profile[0].address}
+                    onChange={onChangeInput}
                   />
                 </label>
                 <label htmlFor="city">
                   <span>{t("main.address.city")}</span>
-                  <input type="text" name="city" value="Hà Nội" />
+                  <input
+                    type="text"
+                    name="city"
+                    value={profile[0].city}
+                    onChange={onChangeInput}
+                  />
                 </label>
                 <label htmlFor="phone">
                   <span>{t("main.address.phone")}</span>
-                  <input type="tel" name="phone" value="0974554928" />
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={profile[0].phone}
+                    onChange={onChangeInput}
+                  />
+                </label>
+                <label htmlFor="email">
+                  <span>{t("main.address.email")}</span>
+                  <input
+                    type="email"
+                    name="email"
+                    value={profile[0].email}
+                    readOnly
+                  />
                 </label>
               </form>
-              <div className="address__btn">
-                <label htmlFor="check">
-                  <input
-                    type="checkbox"
-                    name="check"
-                    form="address__form4"
-                    defaultChecked
-                  />
-                  <span>{t("main.address.checkbox")}</span>
-                </label>
-                <div>
-                  <button
-                    className="btn address__btn--submit"
-                    type="submit"
-                    form="address__form4"
-                  >
-                    {t("button.updateAdd")}
-                  </button>
-                  <button
-                    className="btn address__btn--del"
-                    type="submit"
-                    form="address__form4"
-                  >
-                    {t("button.exit")}
-                  </button>
-                </div>
-              </div>
+            </div>
+            <div className="address__btn">
+              <button
+                className="btn btn1 address__btn--modify"
+                onClick={handleModify}
+              >
+                {t("main.address.modifyAdd")}
+              </button>
+              <button className="btn btn2 hide" onClick={handleUpdate}>
+                {t("button.update")}
+              </button>
+              <button className="btn btn3 hide" onClick={handleCancel}>
+                {t("button.cancel")}
+              </button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </main>
   );
 }

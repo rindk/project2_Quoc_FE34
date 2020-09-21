@@ -36,7 +36,11 @@
         font-size: 1.8rem;
         font-weight: bold;
         padding: 1.5rem 0;
+<<<<<<< HEAD
+        margin: auto 0;
+=======
         margin: auto;
+>>>>>>> af3b198e3ff0319c7f8b11dd977cd99296c1b939
         &:first-child {
           margin: 0;
         }
@@ -67,6 +71,10 @@
       }
       p.price {
         font-size: 2rem;
+<<<<<<< HEAD
+        margin-right: 10%;
+=======
+>>>>>>> af3b198e3ff0319c7f8b11dd977cd99296c1b939
         span {
           font-size: 1.4rem;
         }

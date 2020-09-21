@@ -137,3 +137,22 @@ aside {
 .slide {
   width: calc((100%) / 6);
 }
+.login {
+  a.link {
+    color: black;
+    margin-left: 10px;
+    background-color: $light;
+    padding: 8px 10px;
+    border: 1px solid $des;
+    border-radius: 5px;
+    transition: 0.3s;
+    &:hover {
+      color: $white;
+      background-color: $champagne;
+      border-color: $champagne;
+    }
+  }
+}
+.hide {
+  display: none;
+}

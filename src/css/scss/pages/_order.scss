@@ -1,0 +1,51 @@
+.order {
+  &__row {
+    @include d-grid(5% 30% 8% 10% 20% 15% 12%);
+    border-left: 1px solid $des;
+    border-right: 1px solid $des;
+    text-align: center;
+    margin-top: -1px;
+    font-size: 1.4rem;
+    color: $head;
+    &:first-child {
+      border: 1px solid $des;
+    }
+    &:last-child {
+      border-bottom: 1px solid $des;
+    }
+    h5 {
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-right: 1px solid $des;
+      padding: 2rem 0;
+      line-height: 1.4;
+      &:last-child {
+        border: none;
+      }
+    }
+    div {
+      text-align: left;
+      padding: 1.5rem 0 1.5rem 2rem;
+      border-right: 1px solid $des;
+    }
+    p {
+      padding: 1.8rem 0;
+      border-right: 1px solid $des;
+    }
+    p.price {
+      font-size: 1.8rem;
+      span {
+        font-size: 1.2rem;
+      }
+    }
+    p.order__name {
+      padding: 0;
+      border: none;
+      margin-bottom: 5px;
+    }
+    p.order__status {
+      border: none;
+    }
+  }
+}

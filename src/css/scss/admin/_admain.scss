@@ -1,0 +1,44 @@
+.ad-main {
+  margin: 100px 0 0 230px;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  padding-bottom: 5rem;
+  .header {
+    margin-bottom: 3rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: $black;
+    background-color: transparent;
+  }
+  .shadow {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+  }
+  .blue {
+    border-left-color: #007bff;
+  }
+  .blue-text {
+    color: #007bff;
+    font-weight: 600;
+  }
+  .orange {
+    border-left-color: #ffc107;
+  }
+  .orange-text {
+    color: #ffc107;
+    font-weight: 600;
+  }
+  .green {
+    border-left-color: #28a745;
+  }
+  .green-text {
+    color: #28a745;
+    font-weight: 600;
+  }
+  .red {
+    border-left-color: #dc3545;
+  }
+  .red-text {
+    color: #dc3545;
+    font-weight: 600;
+  }
+}

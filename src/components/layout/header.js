@@ -1,22 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { updateToken } from "../../redux/reducer/token";
-import { checkLoginStt } from "../../redux/reducer/loginStatus";
+import { useSelector } from "react-redux";
+import { signout } from "../commonFunction";
 
 function Header() {
   const { t } = useTranslation();
   const loginStatus = useSelector((state) => state.loginStatus.value);
   const token = useSelector((state) => state.token.value);
-  const dispatch = useDispatch();
-
-  const signout = () => {
-    localStorage.removeItem("token");
-    dispatch(updateToken(null));
-    dispatch(checkLoginStt());
-    return (window.location.href = "/");
-  };
 
   return (
     <header className="home-header">
@@ -54,6 +45,12 @@ function Header() {
                   <li className="home-header__user--items">
                     <Link className="home-header__user--link" to="/cart">
                       {t("header.cart")}
+                    </Link>
+                  </li>
+                  <span>-</span>
+                  <li className="home-header__user--items">
+                    <Link className="home-header__user--link" to="/order">
+                      {t("header.order")}
                     </Link>
                   </li>
                   <span>-</span>

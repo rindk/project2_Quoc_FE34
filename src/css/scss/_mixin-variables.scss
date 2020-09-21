@@ -15,6 +15,8 @@ $orange: #f26522;
 $light: #fafafa;
 $home-text: #d6d6d6;
 $table: #fafafa;
+$ad-header: #4b4f56;
+$shadow: 3px 3px 5px 2px #eee;
 // Variables
 $bps: (
   "xl": 1200px,
@@ -45,7 +47,7 @@ $bps: (
   flex-direction: $dir;
   flex-wrap: wrap;
 }
-@mixin d-grid($col,$row: 1fr,$justify: center,$align: stretch) {
+@mixin d-grid($col, $row: 1fr, $justify: center, $align: stretch) {
   display: grid;
   grid-template-columns: $col;
   grid-template-rows: $row;
@@ -53,7 +55,7 @@ $bps: (
   align-content: $align;
 }
 // Padding - Border
-@mixin pd-bd($pd-tb,$pd-lr,$color: transparent,$width: 1px,$style: solid) {
+@mixin pd-bd($pd-tb, $pd-lr, $color: transparent, $width: 1px, $style: solid) {
   padding: $pd-tb $pd-lr;
   border: $width $style $color;
 }

@@ -4,16 +4,16 @@ export const productItem = createSlice({
   name: "productItem",
   initialState: {
     value: {
-      id: null,
+      id: 0,
       name: "",
       info: "",
-      price: null,
+      price: 0,
       color: "",
       type: "",
       img: "",
       status: "",
       rating: [],
-      avgRating: null,
+      avgRating: 0,
     },
   },
   reducers: {

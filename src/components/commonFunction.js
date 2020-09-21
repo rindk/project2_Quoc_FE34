@@ -1,5 +1,6 @@
 import store from "../redux/store";
 import { updateToken } from "../redux/reducer/token";
+import {checkLoginStt} from "../redux/reducer/loginStatus"
 
 // Open/Close Modal
 export const openModal = () => {
@@ -135,10 +136,6 @@ export const addToCart = async (id, qty) => {
         ];
   const url = process.env.REACT_APP_SV_USERS + `/${token[0].id}`;
   const data = { ...token[0], cart: newCart };
-  console.log(cart);
-  console.log(id);
-  console.log(checkProduct);
-  console.log(newCart);
   return await fetch(url, {
     method: "PUT",
     mode: "cors",
@@ -147,4 +144,10 @@ export const addToCart = async (id, qty) => {
   }).then((res) => store.dispatch(updateToken([data])));
 };
 
-// Handle Cart (Delete 1 or all products)
+// Sign out
+export const signout = () => {
+  localStorage.removeItem("token");
+  store.dispatch(updateToken(null));
+  store.dispatch(checkLoginStt());
+  return (window.location.href = "/");
+};

@@ -7,6 +7,10 @@ import productItemReducer from "./reducer/productItem";
 import loginStatusReducer from "./reducer/loginStatus";
 import tokenReducer from "./reducer/token";
 import queryParamsReducer from "./reducer/queryParams";
+import orderListReducer from "./reducer/orderList";
+import allProductReducer from "./reducer/allProduct";
+import allOrderReducer from "./reducer/allOrder";
+import allUserReducer from "./reducer/allUser";
 
 export default configureStore({
   reducer: {
@@ -18,5 +22,9 @@ export default configureStore({
     loginStatus: loginStatusReducer,
     token: tokenReducer,
     queryParams: queryParamsReducer,
+    orderList: orderListReducer,
+    allProduct: allProductReducer,
+    allOrder: allOrderReducer,
+    allUser: allUserReducer,
   },
 });
